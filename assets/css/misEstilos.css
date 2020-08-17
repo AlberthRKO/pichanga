@@ -1,0 +1,7 @@
+.imagensita {
+    transition: all .4s ease;
+}
+
+.imagensita:hover {
+    transform: translateY(-1rem);
+}
