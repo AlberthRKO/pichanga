@@ -184,7 +184,7 @@
 										<tr>
 											<th>Auxiliar</th>
 											<th>C. I.</th>
-											<th>Rol</th>
+											<th>Area de Conocimiento</th>
 											<th>Calificación</th>
 											<th>Saldo</th>
 											<th>Acciones</th>
@@ -203,24 +203,25 @@
 												</div>
 											</td>
 											<td>14258827</td>
-											<td>Auxiliar Frontend</td>
+											<td>Auxiliar Frontend<br>Auxiliar Calculo 1<br>Auxiliar Fisica</td>
 											<td><i class="feather icon-star-on text-warning"></i>
 												4.8
 											</td>
-											<td>150 Bs</td>
+											<td><label class="badge badge-light-primary">150 Bs</label></td>
 											<td>
-												<a class="success p-0" data-toggle="modal"
+												<a class="success p-0" type="button" data-toggle="modal"
 													data-target="#editarAuxiliar">
 													<i class="feather icon-edit"></i>
 												</a>
-												<a class="success p-0" data-toggle="modal"
+												<a class="success p-0" type="button" data-toggle="modal"
 													data-target="#eliminarAuxiliar">
 													<i class="feather icon-x"></i>
 												</a>
-												<a class="success p-0" data-toggle="modal" data-target="#saldoAuxiliar">
+												<a class="success p-0" type="button" data-toggle="modal"
+													data-target="#saldoAuxiliar">
 													<i class="feather icon-credit-card"></i>
 												</a>
-												<a class="success p-0" data-toggle="modal"
+												<a class="success p-0" type="button" data-toggle="modal"
 													data-target="#perfilAuxiliar">
 													<i class="feather icon-eye"></i>
 												</a>
@@ -243,20 +244,21 @@
 											<td><i class="feather icon-star-on text-warning"></i>
 												4.0
 											</td>
-											<td>50 Bs</td>
+											<td><label class="badge badge-light-primary">50 Bs</label></td>
 											<td>
-												<a class="success p-0" data-toggle="modal"
+												<a class="success p-0" type="button" data-toggle="modal"
 													data-target="#editarAuxiliar">
 													<i class="feather icon-edit"></i>
 												</a>
-												<a class="success p-0" data-toggle="modal"
+												<a class="success p-0" type="button" data-toggle="modal"
 													data-target="#eliminarAuxiliar">
 													<i class="feather icon-x"></i>
 												</a>
-												<a class="success p-0" data-toggle="modal" data-target="#saldoAuxiliar">
+												<a class="success p-0" type="button" data-toggle="modal"
+													data-target="#saldoAuxiliar">
 													<i class="feather icon-credit-card"></i>
 												</a>
-												<a class="success p-0" data-toggle="modal"
+												<a class="success p-0" type="button" data-toggle="modal"
 													data-target="#perfilAuxiliar">
 													<i class="feather icon-eye"></i>
 												</a>
@@ -279,21 +281,26 @@
 											<td><i class="feather icon-star-on text-warning"></i>
 												4.5
 											</td>
-											<td>100 Bs</td>
+											<td><label class="badge badge-light-danger">-100 Bs</label></td>
 											<td>
-												<a class="success p-0" data-toggle="modal"
-													data-target="#editarAuxiliar">
+												<a class="success p-0" type="button" data-toggle="modal"
+													data-target="#editarAuxiliar" data-toggle="tooltip"
+													data-placement="top" title="Editar Auxiliar">
 													<i class="feather icon-edit"></i>
 												</a>
-												<a class="success p-0" data-toggle="modal"
-													data-target="#eliminarAuxiliar">
+												<a class="success p-0" type="button" data-toggle="modal"
+													data-target="#eliminarAuxiliar" data-toggle="tooltip"
+													data-placement="top" title="Eliminar Auxiliar">
 													<i class="feather icon-x"></i>
 												</a>
-												<a class="success p-0" data-toggle="modal" data-target="#saldoAuxiliar">
+												<a class="success p-0" type="button" data-toggle="modal"
+													data-target="#saldoAuxiliar" data-toggle="tooltip"
+													data-placement="top" title="Agregar Saldo">
 													<i class="feather icon-credit-card"></i>
 												</a>
-												<a class="success p-0" data-toggle="modal"
-													data-target="#perfilAuxiliar">
+												<a class="success p-0" type="button" data-toggle="modal"
+													data-target="#perfilAuxiliar" data-toggle="tooltip"
+													data-placement="top" title="Ver Perfil Auxiliar">
 													<i class="feather icon-eye"></i>
 												</a>
 											</td>
@@ -310,6 +317,39 @@
 
 		</div>
 	</div>
+
+
+
+	<!-- Modales -->
+	<!-- eliminar auxi -->
+	<div id="editarAuxiliar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle">Modal Title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body">
+					<p class="mb-0">Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac
+						facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn  btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn  btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
 	<!-- [ Main Content ] end -->
 	<!-- Warning Section start -->
 	<!-- Older IE warning message -->

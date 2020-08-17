@@ -1,16 +1,24 @@
 .imagensita {
-    transition: all .4s ease;
+    transition: all 0.4s ease;
 }
 
 .imagensita:hover {
     transform: translateY(-1rem);
 }
 
-/* .card-auxi {
+.card-auxi {
     background: rgb(70, 128, 255);
     border-bottom: 2px solid rgb(70, 128, 255);
     border-right: 2px solid rgb(70, 128, 255);
-    border-top: 2px solid white;
-    border-left: 2px solid white;
-    background: linear-gradient(100deg, rgb(171, 196, 250) 50%, rgba(255, 255, 255, 1) 50%);
-} */
+    border-top: 2px solid #ecf0f5;
+    border-left: 2px solid #ecf0f5;
+    background: linear-gradient(100deg, #ecf0f5 50%, rgba(255, 255, 255, 1) 50%);
+}
+
+Input:focus {
+    background-color: transparent !important;
+}
+
+#customFile {
+    border: none !important;
+}

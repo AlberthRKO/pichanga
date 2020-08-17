@@ -159,7 +159,8 @@
 										class="img-fluid imagensita">
 								</div>
 								<div class="col-md-6 px-5">
-									<h4 class="font-weight-bold text-uppercase text-center mb-4">Datos del Auxiliar</h4>
+									<h4 class="font-weight-bold text-uppercase text-center mb-4 mt-2">Datos del Auxiliar
+									</h4>
 									<form>
 										<div class="row">
 											<div class="col-sm-12 mb-3">
@@ -168,20 +169,40 @@
 													<input type="text" class="form-control" id="nombre" placeholder="">
 												</div>
 											</div>
-											<div class="col-sm-12 mb-3">
+											<div class="col-sm-12 mb-0">
 												<div class="form-group">
 													<label class="floating-label" for="apellido">Apellido</label>
 													<input type="text" class="form-control" id="apellido"
 														placeholder="">
 												</div>
 											</div>
-											<div class="col-sm-9 mb-3">
+											<div class="col-sm-12 mb-3">
+												<div class="form-group">
+													<div class="input-group input-file d-flex align-items-center"
+														name="Fichier1">
+														<span class="input-group-btn pr-2">
+															<button class="btn btn-sm btn-outline-primary btn-choose"
+																type="button"><i
+																	class="feather icon-file-plus"></i></button>
+														</span>
+														<input type="text" class="form-control"
+															placeholder='Cargar Imagen Auxiliar' />
+														<span class="input-group-btn pl-2">
+															<button class="btn btn-sm btn-outline-danger btn-reset"
+																type="button"><i
+																	class="feather icon-minus"></i></button>
+														</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-9 mb-3">
 												<div class="form-group">
 													<label class="floating-label" for="ci">Carnet de Identidad</label>
 													<input type="text" class="form-control" id="ci" placeholder="">
 												</div>
 											</div>
-											<div class="col-sm-3 mb-3">
+											<div class="col-3 mb-3">
 												<div class="form-group">
 													<select name="extension" class="form-control" id="extension">
 														<option value="CH.">CH.</option>
@@ -217,12 +238,40 @@
 													</select>
 												</div>
 											</div>
+
 											<div class="col-sm-12 mb-3">
-												<div class="form-group">
-													<label class="floating-label" for="Rol">Rol</label>
-													<input type="password" class="form-control" id="Rol" placeholder="">
+												<div data-role="appendRow">
+													<div class="form-inline form-group">
+
+														<input input type="text"
+															class="form-control mb-2 mr-sm-2 col-12 col-sm-9 col-md-8 col-lg-9"
+															id="field-name" placeholder="Area de Conocimiento">
+
+														<!-- file upload ends-->
+														<div class="mx-auto">
+															<button
+																class="btn btn-sm btn-outline-danger mr-2 mb-2 botoncitoX"
+																data-role="remove">
+																<i class="feather icon-x"></i>
+															</button>
+															<button
+																class="btn btn-sm btn-outline-primary  mb-2 botoncitoMas"
+																data-role="add">
+																<i class="feather icon-plus"></i>
+															</button>
+														</div>
+
+
+
+
+													</div> <!-- /div.form-inline -->
 												</div>
 											</div>
+											<div class="col-md-6 col-lg-4 mx-auto mb-3">
+												<button type="button"
+													class="btn btn-primary btn-block">Registrar</button>
+											</div>
+
 										</div>
 									</form>
 								</div>
@@ -289,6 +338,7 @@
 	<script src="assets/js/vendor-all.min.js"></script>
 	<script src="assets/js/plugins/bootstrap.min.js"></script>
 	<script src="assets/js/ripple.js"></script>
+	<script src="assets/js/misjs.js"></script>
 	<script src="assets/js/pcoded.min.js"></script>
 
 
