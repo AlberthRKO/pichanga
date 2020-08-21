@@ -15,7 +15,9 @@
 	<!-- vendor css -->
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/misEstilos.css">
-
+	<link rel="stylesheet" type="text/css" href="assets/css/dropzone.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/sweetalert2.min.css">
+	<script type="text/javascript" src="assets/js/dropzone.js"></script>
 
 
 </head>
@@ -163,39 +165,26 @@
 									</h4>
 									<form>
 										<div class="row">
+										<div id="alertaNombres" class="w-100">
 											<div class="col-sm-12 mb-3">
 												<div class="form-group">
-													<label class="floating-label" for="nombre">Nombre</label>
-													<input type="text" class="form-control" id="nombre" placeholder="">
+													<label class="floating-label" for="nombres">Nombres</label>
+													<input type="text" class="form-control" id="nombres" placeholder="">
 												</div>
 											</div>
+											<p id="alertaNombresMensaje" style="display:none;">INGRESE SUS NOMBRES</p>
+										</div>
+										<div id="alertaApellidos" class="w-100">
 											<div class="col-sm-12 mb-0">
 												<div class="form-group">
-													<label class="floating-label" for="apellido">Apellido</label>
-													<input type="text" class="form-control" id="apellido"
+													<label class="floating-label" for="apellidos">Apellidos</label>
+													<input type="text" class="form-control" id="apellidos"
 														placeholder="">
 												</div>
 											</div>
-											<div class="col-sm-12 mb-3">
-												<div class="form-group">
-													<div class="input-group input-file d-flex align-items-center"
-														name="Fichier1">
-														<span class="input-group-btn pr-2">
-															<button class="btn btn-sm btn-outline-primary btn-choose"
-																type="button"><i
-																	class="feather icon-file-plus"></i></button>
-														</span>
-														<input type="text" class="form-control"
-															placeholder='Cargar Imagen Auxiliar' />
-														<span class="input-group-btn pl-2">
-															<button class="btn btn-sm btn-outline-danger btn-reset"
-																type="button"><i
-																	class="feather icon-minus"></i></button>
-														</span>
-													</div>
-												</div>
-											</div>
-
+											<p id="alertaApellidosMensaje" style="display:none;">INGRESE SUS APELLIDOS</p>
+										</div>
+										<div id="alertaCi" class="w-100">
 											<div class="col-9 mb-3">
 												<div class="form-group">
 													<label class="floating-label" for="ci">Carnet de Identidad</label>
@@ -204,7 +193,7 @@
 											</div>
 											<div class="col-3 mb-3">
 												<div class="form-group">
-													<select name="extension" class="form-control" id="extension">
+													<select name="complemento" class="form-control" id="complemento">
 														<option value="CH.">CH.</option>
 														<option value="TJ.">TJ.</option>
 														<option value="PD.">PD.</option>
@@ -217,6 +206,31 @@
 													</select>
 												</div>
 											</div>
+											<p id="alertaCiMensaje1" style="display:none;">INGRESE SU C.I.</p>
+                                    		<p id="alertaCiMensaje2" style="display:none;">SU C.I. YA TIENE UNA CUENTA REGISTRADA</p>
+										</div>
+										<div id="alertaTelefono" class="form-group w-100">
+											<div class="col-sm-12 mb-3">
+												<div class="form-group">
+													<label class="floating-label" for="telefono">Teléfono</label>
+													<input type="text" class="form-control" id="telefono" placeholder="">
+												</div>
+											</div>
+											<p id="alertaTelefonoMensaje" style="display:none;">INGRESE SU TELEFONO</p>
+										</div>
+											<div class="col-sm-12 mb-3">
+												<div class="form-group">
+													<label class="floating-label" for="correo">Correo</label>
+													<input type="text" class="form-control" id="correo" placeholder="">
+												</div>
+											</div>
+											<div class="col-sm-12 mb-3">
+												<div action="php/config/subir.php" class="dropzone w-100" id="dropzone">
+													<div class="fallback">
+														<input type="file" name="file" value="" id="archivo">
+													</div>
+												</div>
+											</div>
 											<div class="col-sm-9 mb-3">
 												<div class="form-group">
 													<label class="floating-label" for="cuenta">Cuenta bancaria</label>
@@ -225,51 +239,49 @@
 											</div>
 											<div class="col-sm-3 mb-3">
 												<div class="form-group">
-													<select name="extension" class="form-control" id="extension">
+													<select name="banco" class="form-control" id="banco">
 														<option selected hidden>Banco</option>
 														<option value="Union">Union</option>
-														<option value="Prodem">Prodem</option>
+														<option value="PRODEM">PRODEM</option>
 														<option value="BNB">BNB</option>
-														<option value="Sol">Sol</option>
+														<option value="SOL">SOL</option>
 														<option value="BCP">BCP</option>
-														<option value="Mercantil">Mercantil</option>
-														<option value="Fassil">Fassil</option>
+														<option value="Mercantíl">Mercantíl</option>
+														<option value="FASSIL">FASSIL</option>
 														<option value="Wester Union">Wester Union</option>
+														<option value="Tigo Money">Tigo Money</option>
 													</select>
 												</div>
 											</div>
 
-											<div class="col-sm-12 mb-3">
-												<div data-role="appendRow">
+											<div class="col-sm-12 mb-3" id="conocimientos">
+												<div data-role="appendRow" id="grupoConocimiento1">
 													<div class="form-inline form-group">
-
+													<label class="floating-label" for="conocimiento1">Area de conocimiento</label>
 														<input input type="text"
 															class="form-control mb-2 mr-sm-2 col-12 col-sm-9 col-md-8 col-lg-9"
-															id="field-name" placeholder="Area de Conocimiento">
+															id="conocimiento1" placeholder="">
 
 														<!-- file upload ends-->
 														<div class="mx-auto">
 															<button
 																class="btn btn-sm btn-outline-danger mr-2 mb-2 botoncitoX"
-																data-role="remove">
+																onclick="removeConocimiento(event,1)">
 																<i class="feather icon-x"></i>
 															</button>
 															<button
 																class="btn btn-sm btn-outline-primary  mb-2 botoncitoMas"
-																data-role="add">
+																onclick="addConocimiento(event);">
 																<i class="feather icon-plus"></i>
 															</button>
 														</div>
-
-
-
-
 													</div> <!-- /div.form-inline -->
+													
 												</div>
 											</div>
 											<div class="col-md-6 col-lg-4 mx-auto mb-3">
 												<button type="button"
-													class="btn btn-primary btn-block">Registrar</button>
+													class="btn btn-primary btn-block" id="btnRegistrar">Registrar</button>
 											</div>
 
 										</div>
@@ -340,8 +352,11 @@
 	<script src="assets/js/ripple.js"></script>
 	<script src="assets/js/misjs.js"></script>
 	<script src="assets/js/pcoded.min.js"></script>
-
-
+	<script src="assets/js/sweetalert2.all.min.js"></script
+	<!-- Required Js Til Here -->
+	<!-- Our custom js -->
+	<script src="assets/js/auxiliar.js"></script>
+	<!-- Our custom js til here -->
 
 </body>
 
