@@ -83,3 +83,52 @@ function bs_input_file() {
 $(function () {
     bs_input_file();
 });
+
+
+const listaP = document.getElementById('listaPendiente')
+const listaH = document.getElementById('listaHaciendo')
+const listaT = document.getElementById('listaTerminada')
+
+// console.log(lista)
+Sortable.create(listaP, {
+    group: 'shared',
+    animation: 200,
+    // quitar fantasma
+    // clase para cuando agamos click
+    chosenClass: "seleccion",
+    // ghostClass: 'fantasma',
+    dragClass: 'drago',
+    // Metodos de Sortable
+    onEnd: () => {
+        // funcion que se ejecuta cuando el usuario suelte lo que este arrastrando
+        console.log('se inserto algo 1')
+    }
+});
+Sortable.create(listaH, {
+    group: 'shared',
+    animation: 200,
+    // quitar fantasma
+    // clase para cuando agamos click
+    chosenClass: "seleccion",
+    // ghostClass: 'fantasma',
+    dragClass: 'drago',
+    // Metodos de Sortable
+    onEnd: () => {
+        // funcion que se ejecuta cuando el usuario suelte lo que este arrastrando
+        console.log('se inserto algo 2')
+    }
+});
+Sortable.create(listaT, {
+    group: 'shared',
+    animation: 200,
+    // quitar fantasma
+    // clase para cuando agamos click
+    chosenClass: "seleccion",
+    // ghostClass: 'fantasma',
+    dragClass: 'drago',
+    // Metodos de Sortable
+    onEnd: () => {
+        // funcion que se ejecuta cuando el usuario suelte lo que este arrastrando
+        console.log('se inserto algo 3')
+    }
+});
