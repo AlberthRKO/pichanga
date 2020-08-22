@@ -172,8 +172,8 @@
                 
                 //listamos todos los resultados
                 while($query->fetch()){
-                    $auxiliarActual = new Auxiliar($idAuxiliar,$nombres,$apellidos,$ci,$complemento,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,$contrasena,$rol,$activo);
-                    array_push($auxiliar,$auxiliarActual);
+                    $auxiliarActual = new Auxiliar($idAuxiliar,$nombres,$apellidos,$ci,$complemento,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,"",$rol,$activo);
+                    array_push($auxiliares,$auxiliarActual);
                 }
                 //Cerramos la conexion
                 $query->close();

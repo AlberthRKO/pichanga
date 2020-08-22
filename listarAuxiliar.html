@@ -204,121 +204,7 @@
 											<th>Acciones</th>
 										</tr>
 									</thead>
-									<tbody>
-										<tr>
-											<td>
-												<div class="d-inline-block align-middle">
-													<img src="assets/images/user/avatar-4.jpg" alt="user image"
-														class="img-radius wid-40 align-top m-r-15">
-													<div class="d-inline-block">
-														<h6>Alberth Paredes</h6>
-														<p class="text-muted m-b-0">Chuquisaca</p>
-													</div>
-												</div>
-											</td>
-											<td>14258827</td>
-											<td>Auxiliar Frontend<br>Auxiliar Calculo 1<br>Auxiliar Fisica</td>
-											<td><i class="feather icon-star-on text-warning"></i>
-												4.8
-											</td>
-											<td><label class="badge badge-light-primary">150 Bs</label></td>
-											<td>
-												<a class="success p-0" type="button" data-toggle="modal"
-													data-target="#editarAuxiliar">
-													<i class="feather icon-edit"></i>
-												</a>
-												<a class="success p-0" type="button" data-toggle="modal"
-													data-target="#eliminarAuxiliar">
-													<i class="feather icon-x"></i>
-												</a>
-												<a class="success p-0" type="button" data-toggle="modal"
-													data-target="#saldoAuxiliar">
-													<i class="feather icon-credit-card"></i>
-												</a>
-												<a class="success p-0" type="button" data-toggle="modal"
-													data-target="#perfilAuxiliar">
-													<i class="feather icon-eye"></i>
-												</a>
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-												<div class="d-inline-block align-middle">
-													<img src="assets/images/user/avatar-3.jpg" alt="user image"
-														class="img-radius wid-40 align-top m-r-15">
-													<div class="d-inline-block">
-														<h6>Marlen Yucra</h6>
-														<p class="text-muted m-b-0">Pando</p>
-													</div>
-												</div>
-											</td>
-											<td>14214526</td>
-											<td>Auxiliar Matematicas</td>
-											<td><i class="feather icon-star-on text-warning"></i>
-												4.0
-											</td>
-											<td><label class="badge badge-light-primary">50 Bs</label></td>
-											<td>
-												<a class="success p-0" type="button" data-toggle="modal"
-													data-target="#editarAuxiliar">
-													<i class="feather icon-edit"></i>
-												</a>
-												<a class="success p-0" type="button" data-toggle="modal"
-													data-target="#eliminarAuxiliar">
-													<i class="feather icon-x"></i>
-												</a>
-												<a class="success p-0" type="button" data-toggle="modal"
-													data-target="#saldoAuxiliar">
-													<i class="feather icon-credit-card"></i>
-												</a>
-												<a class="success p-0" type="button" data-toggle="modal"
-													data-target="#perfilAuxiliar">
-													<i class="feather icon-eye"></i>
-												</a>
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-												<div class="d-inline-block align-middle">
-													<img src="assets/images/user/avatar-2.jpg" alt="user image"
-														class="img-radius wid-40 align-top m-r-15">
-													<div class="d-inline-block">
-														<h6>Alvaro zapata</h6>
-														<p class="text-muted m-b-0">Cochabamba</p>
-													</div>
-												</div>
-											</td>
-											<td>45885566</td>
-											<td>Auxiliar Backend</td>
-											<td><i class="feather icon-star-on text-warning"></i>
-												4.5
-											</td>
-											<td><label class="badge badge-light-danger">-100 Bs</label></td>
-											<td>
-												<a class="success p-0" type="button" data-toggle="modal"
-													data-target="#editarAuxiliar" data-toggle="tooltip"
-													data-placement="top" title="Editar Auxiliar">
-													<i class="feather icon-edit"></i>
-												</a>
-												<a class="success p-0" type="button" data-toggle="modal"
-													data-target="#eliminarAuxiliar" data-toggle="tooltip"
-													data-placement="top" title="Eliminar Auxiliar">
-													<i class="feather icon-x"></i>
-												</a>
-												<a class="success p-0" type="button" data-toggle="modal"
-													data-target="#saldoAuxiliar" data-toggle="tooltip"
-													data-placement="top" title="Agregar Saldo">
-													<i class="feather icon-credit-card"></i>
-												</a>
-												<a class="success p-0" type="button" data-toggle="modal"
-													data-target="#perfilAuxiliar" data-toggle="tooltip"
-													data-placement="top" title="Ver Perfil Auxiliar">
-													<i class="feather icon-eye"></i>
-												</a>
-											</td>
-										</tr>
+									<tbody id="tabla">
 
 									</tbody>
 								</table>
@@ -418,7 +304,11 @@
 	<script src="assets/js/ripple.js"></script>
 	<script src="assets/js/misjs.js"></script>
 	<script src="assets/js/pcoded.min.js"></script>
-
+	<script src="assets/js/sweetalert2.all.min.js"></script
+	<!-- Required Js Til Here -->
+	<!-- Our custom js -->
+	<script src="assets/js/listarAuxiliar.js"></script>
+	<!-- Our custom js til here -->
 
 
 </body>
