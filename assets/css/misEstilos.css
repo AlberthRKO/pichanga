@@ -20,6 +20,23 @@ Input:focus {
     border: none !important;
 }
 
+.fechita,
+.fechita2 {
+    position: absolute;
+    top: 11px;
+    left: 0;
+    font-size: 0.875rem;
+    z-index: 1;
+    cursor: text;
+    transition: all 0.3s ease;
+}
+
+.elevacion {
+    top: -10px;
+    font-size: 0.75rem;
+    color: #4680ff;
+}
+
 /* .card .lista {
     background-color: rgba(0, 0, 255, 0.1);
 } */
@@ -43,3 +60,14 @@ Input:focus {
 .card .lista .card.fantasma {
     border: 1px solid rgb(70, 129, 255);
 } */
+
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: transparent !important;
+    opacity: 1;
+}
+
+.btn-primary {
+    background-color: #4680FF !important;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 5px -8px !important;
+}

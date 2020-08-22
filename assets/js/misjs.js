@@ -39,6 +39,47 @@ $(function () {
             container.append(new_field_group);
         }
     );
+
+    $('.datepicker').pickadate({
+        monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        monthsShort: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
+        weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        weekdaysShort: ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'],
+        today: 'Hoy',
+        clear: 'Limpiar',
+        close: '',
+
+        // etiquetas de acceso, traduccion
+        labelMonthNext: 'Siguiente mes',
+        labelMonthPrev: 'Anterior mes',
+        labelMonthSelect: 'Seleccione un mes',
+        labelYearSelect: 'Seleccione un año',
+        // botones de formato
+        firstDay: 1,
+        format: 'dddd, d !de mmmm !de yyyy', /* formato para el usuario  CARACTERES ESPECIALES LE METEMOS ! */
+        formatSubmit: 'dd/mm/yyyy', //FORMATO PARA EL SERVIDOR
+        // selector de añop y mes
+        selectYears: false, //2 muestra un año antes y uno despues
+        // elegimos fechas habilitadas en el date
+
+        // funcion para el dia actual
+        // onStart: function () {
+        //     var date = new Date();
+        //     this.set('select', [date.getFullYear(), date.getMonth(), date.getDate()])
+        // }
+    })
+
+
+    $('#fechaFin').focus(function () {
+        $('.fechita2').addClass('elevacion');
+
+    });
+    $('#fechaIni').focus(function () {
+        $('.fechita').addClass('elevacion');
+
+    });
+
+
 });
 
 
@@ -49,6 +90,7 @@ $(document).on('change', '.file-upload', function () {
     var file = this.files[0].name;
     $(this).prev('label').text(file);
 });
+
 
 
 

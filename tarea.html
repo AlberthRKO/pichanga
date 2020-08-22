@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ablepro v8.0 bootstrap admin template by Phoenixcoded</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Phoenixcoded" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="assets/js/pickadate.js/themes/default.css">
+    <!-- Carga del CSS de "Date Picker" -->
+    <link rel="stylesheet" href="assets/js/pickadate.js/themes/default.date.css">
+    <!-- Carga del CSS de "Time Picker" -->
+    <link rel="stylesheet" href="assets/js/pickadate.js/themes/default.time.css">
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/misEstilos.css">
+
+
+
+</head>
+
+<body class="">
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!-- [ Pre-loader ] End -->
+    <!-- [ navigation menu ] start -->
+    <nav class="pcoded-navbar menu-light ">
+        <div class="navbar-wrapper  ">
+            <div class="navbar-content scroll-div ">
+
+                <div class="">
+                    <div class="main-menu-header">
+                        <img class="img-radius" src="assets/images/pichanga.jpg" alt="User-Profile-Image">
+                        <div class="user-details">
+                            <div>Admin</div>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="nav pcoded-inner-navbar ">
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Estadisticas</label>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link "><span class="pcoded-micon"><i
+                                    class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                    </li>
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Módulo Auxiliares</label>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i
+                                    class="feather icon-users"></i></span><span
+                                class="pcoded-mtext">Auxiliares</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="auxiliar.html">Registrar Auxiliar</a></li>
+                            <li><a href="listarAuxiliar.html">Listar Auxiliares</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Módulo de Tareas</label>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i
+                                    class="feather icon-file-text"></i></span><span class="pcoded-mtext">Tareas -
+                                Examenes</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="tarea.html" target="_blank">Registrar Tarea</a></li>
+                            <li><a href="listarTarea.html" target="_blank">Listar Tareas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Tablero de Tareas</label>
+                    </li>
+                    <li class="nav-item">
+                        <a href="tablero.html" class="nav-link "><span class="pcoded-micon"><i
+                                    class="feather icon-tablet"></i></span><span class="pcoded-mtext">Tablero
+                                KANBAN</span></a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- [ navigation menu ] end -->
+    <!-- [ Header ] start -->
+    <header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
+
+
+        <div class="m-header">
+            <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+            <a href="#!" class="b-brand">
+                <!-- ========   change your logo hear   ============ -->
+                <h3 class=" text-white text-uppercase h4 mt-2 f-w-800">Pichanga</h3>
+            </a>
+            <a href="#!" class="mob-toggler">
+                <i class="feather icon-more-vertical"></i>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="#!" class="pop-search"><i class="feather icon-link"></i></a>
+                    <div class="search-bar">
+                        <div class="d-flex justify-content-around">
+                            <a href="" class="btn btn-primary">1er Mensaje</a>
+                            <a href="" class="btn btn-primary">2do Mensaje</a>
+                            <a href="" class="btn btn-primary">3er Mensaje</a>
+                            <a href="" class="btn btn-primary">4to Mensaje</a>
+                        </div>
+                        <button type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <a href="login.html" class="dud-logout" title="Logout">
+                        <i class="feather icon-log-out"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+    </header>
+    <!-- [ Header ] end -->
+
+
+
+    <!-- [ Main Content ] start -->
+    <section class="pcoded-main-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Módulo de Tareas</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="#!">Tareas</a></li>
+                                <li class="breadcrumb-item"><a href="#!">Registrar Tarea</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <div class="card card-auxi">
+                        <div class="card-body">
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <div class="col-md-6 text-center">
+                                    <img src="assets/images/Tarea.svg" alt="" class="img-fluid imagensita">
+                                </div>
+                                <div class="col-md-6 px-5">
+                                    <h4 class="font-weight-bold text-uppercase text-center mb-4 mt-2">Datos de la Tarea
+                                        o Examen
+                                    </h4>
+                                    <form>
+                                        <div class="row">
+                                            <div id="alertaNombres" class="w-100">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label class="floating-label" for="nombres">Nombre Tarea</label>
+                                                        <input type="text" class="form-control" id="nombres"
+                                                            placeholder="">
+                                                    </div>
+                                                </div>
+                                                <p id="alertaNombresMensaje" style="display:none;">INGRESE SUS NOMBRES
+                                                </p>
+                                            </div>
+                                            <div id="alertaPrecios" class="w-100 mx-auto row">
+                                                <div class="col-4">
+                                                    <div class="form-group">
+                                                        <label class="floating-label" for="costo">Costo</label>
+                                                        <input type="number" min="1" pattern="^[0-9]+"
+                                                            class="form-control" id="costo" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="form-group">
+                                                        <label class="floating-label" for="ganancia">Ganancia</label>
+                                                        <input type="number" min="1" pattern="^[0-9]+"
+                                                            class="form-control" id="ganancia" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="form-group">
+                                                        <label class="floating-label" for="saldoIni">Saldo
+                                                            Inicial</label>
+                                                        <input type="number" min="1" pattern="^[0-9]+"
+                                                            class="form-control" id="saldoIni" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <p id="alertaPrecioMensaje" style="display:none;">INTRODUZCA LOS PRECIOS
+                                                </p>
+                                            </div>
+
+                                            <div id="alertaFechas" class="w-100 mx-auto row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label class="fechita" for="fechaIni">Fecha de
+                                                            Recepcion</label>
+                                                        <input type="date" class="form-control datepicker" id="fechaIni"
+                                                            placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label class="fechita2" for="fechaFin">Fecha de
+                                                            Entrega</label>
+                                                        <input type="date" class="form-control datepicker datepicker2"
+                                                            id="fechaFin" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <p id="alertaFechaMensaje" style="display:none;">INDIQUE LAS FECHAS DE
+                                                    INICIO/FIN</p>
+                                            </div>
+
+
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label class="floating-label" for="tipo">Tipo</label>
+                                                    <select name="banco" class="form-control" id="tipo">
+                                                        <option value="" hidden></option>
+                                                        <option value="tarea">Tarea</option>
+                                                        <option value="examen">Examen</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label class="floating-label" for="materia">Materia</label>
+                                                    <input type="text" class="form-control" id="materia" placeholder="">
+                                                </div>
+                                            </div>
+
+                                            <div id="alertaNombreCliente" class="w-100">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label class="floating-label" for="nombreCliente">Nombre
+                                                            Cliente</label>
+                                                        <input type="text" class="form-control" id="nombreCliente"
+                                                            placeholder="">
+                                                    </div>
+                                                </div>
+                                                <p id="alertaNombreClienteMensaje" style="display:none;">INGRESE NOMBRE
+                                                    DEL CLIENTE
+                                                </p>
+                                            </div>
+
+
+                                            <div id="alertaTelefonoCliente" class="w-100">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label class="floating-label" for="telefono">Teléfono</label>
+                                                        <input type="text" class="form-control" id="telefono"
+                                                            placeholder="">
+                                                    </div>
+                                                </div>
+                                                <p id="alertaTelefonoClienteMensaje" style="display:none;">INGRESE EL
+                                                    TELEFONO
+                                                </p>
+                                            </div>
+                                            <div id="alertaDescripcionTarea" class="w-100">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label class="floating-label" for="descripcionTarea">Descripcion
+                                                            de la Tarea</label>
+                                                        <textarea class="form-control" id="descripcionTarea"
+                                                            rows="3"></textarea>
+                                                    </div>
+                                                </div>
+                                                <p id="alertaDecripcionMensaje" style="display:none;">Describa la Tarea
+                                                </p>
+                                            </div>
+
+                                            <div class="col-md-6 col-lg-4 mx-auto mb-3 mt-2">
+                                                <button type="button" class="btn btn-primary btn-block rounded"
+                                                    id="btnRegistrarTarea">Registrar Tarea</button>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ Main Content ] end -->
+
+        </div>
+    </section>
+    <!-- [ Main Content ] end -->
+    <!-- Warning Section start -->
+    <!-- Older IE warning message -->
+    <!--[if lt IE 11]>
+        <div class="ie-warning">
+            <h1>Warning!!</h1>
+            <p>You are using an outdated version of Internet Explorer, please upgrade
+               <br/>to any of the following web browsers to access this website.
+            </p>
+            <div class="iew-container">
+                <ul class="iew-download">
+                    <li>
+                        <a href="http://www.google.com/chrome/">
+                            <img src="assets/images/browser/chrome.png" alt="Chrome">
+                            <div>Chrome</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mozilla.org/en-US/firefox/new/">
+                            <img src="assets/images/browser/firefox.png" alt="Firefox">
+                            <div>Firefox</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.opera.com">
+                            <img src="assets/images/browser/opera.png" alt="Opera">
+                            <div>Opera</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.apple.com/safari/">
+                            <img src="assets/images/browser/safari.png" alt="Safari">
+                            <div>Safari</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                            <img src="assets/images/browser/ie.png" alt="">
+                            <div>IE (11 & above)</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>Sorry for the inconvenience!</p>
+        </div>
+    <![endif]-->
+    <!-- Warning Section Ends -->
+
+    <!-- Required Js -->
+    <script src="assets/js/vendor-all.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+
+    <script src="assets/js/pickadate.js/picker.js"></script>
+    <script src="assets/js/pickadate.js/picker.date.js"></script>
+
+    <script src="assets/js/ripple.js"></script>
+    <script src="assets/js/pcoded.min.js"></script>
+    <script src="assets/js/misjs.js"></script>
+
+
+
+
+</body>
+
+</html>
