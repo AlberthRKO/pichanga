@@ -58,7 +58,7 @@
         echo "empty";
     break;
     case "getTodosAuxiliares":
-      $auxiliares = Auxiliar::getTodosUsuarios();
+      $auxiliares = Auxiliar::getTodosAuxiliares();
       if($auxiliares != null)
         echo json_encode($auxiliares);
       else

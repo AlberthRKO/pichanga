@@ -23,5 +23,12 @@
       $idConocimiento = $_POST['idConocimiento'];
       Conocimiento::eliminar($idConocimiento);
     break;
+    case 'getTodosConocimientos':
+      $conocimientos = Conocimiento::getTodosConocimientos();
+      if($conocimientos != null)
+        echo json_encode($conocimientos);
+      else
+        echo "empty";
+    break;
   }
 ?>

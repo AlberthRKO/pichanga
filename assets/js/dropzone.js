@@ -288,12 +288,12 @@ function (_Emitter) {
          * The `options.transformFile` function uses these options, so if the `transformFile` function
          * is overridden, these options don't do anything.
          */
-        resizeWidth: null,
+        resizeWidth: 100,
 
         /**
          * See `resizeWidth`.
          */
-        resizeHeight: null,
+        resizeHeight: 100,
 
         /**
          * The mime type of the resized image (before it gets uploaded to the server).
@@ -311,7 +311,7 @@ function (_Emitter) {
          * How the images should be scaled down in case both, `resizeWidth` and `resizeHeight` are provided.
          * Can be either `contain` or `crop`.
          */
-        resizeMethod: 'contain',
+        resizeMethod: 'crop',
 
         /**
          * The base that is used to calculate the filesize. You can change this to
