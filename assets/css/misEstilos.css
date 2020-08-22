@@ -8,10 +8,7 @@
 
 .card-auxi {
     background: rgb(70, 128, 255);
-    border-bottom: 2px solid rgb(70, 128, 255);
-    border-right: 2px solid rgb(70, 128, 255);
-    border-top: 2px solid #ecf0f5;
-    border-left: 2px solid #ecf0f5;
+    border: 2px solid rgb(70, 128, 255);
     background: linear-gradient(100deg, #ecf0f5 50%, rgba(255, 255, 255, 1) 50%);
 }
 

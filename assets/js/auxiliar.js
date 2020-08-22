@@ -2,32 +2,32 @@ var foto = "";
 var contadorConocimientosEnVista = 1;
 var contadorConocimientos = 1;
 
-$('#btnRegistrar').click(function (e){
+$('#btnRegistrar').click(function (e) {
     e.preventDefault();
-    if(hayError())
+    if (hayError())
         return;
     insertar();
 });
 
-function hayError(){
+function hayError() {
     let errorTelefono = validarTelefono();
     let errorCi1 = validarCi();
     let errorCi2 = validarCiExistente();
     let errorApellidos = validarApellidos();
     let errorNombres = validarNombres();
-    if(errorNombres || errorApellidos || errorCi1 || errorCi2 || errorTelefono)
+    if (errorNombres || errorApellidos || errorCi1 || errorCi2 || errorTelefono)
         return true;
     return false;
 }
 
-function validarNombres(){
+function validarNombres() {
     let nombres = $('#nombres').val();
-    if(nombres.trim() != ""){
+    if (nombres.trim() != "") {
         $('#alertaNombres').removeClass("alert alert-danger");
         $('#alertaNombresMensaje').fadeOut();
         return false;
     }
-    else{
+    else {
         $('#alertaNombres').addClass("alert alert-danger");
         $('#alertaNombresMensaje').fadeIn();
         $('#nombres').focus();
@@ -35,14 +35,14 @@ function validarNombres(){
     }
 }
 
-function validarApellidos(){
+function validarApellidos() {
     let apellidos = $('#apellidos').val();
-    if(apellidos.trim() != ""){
+    if (apellidos.trim() != "") {
         $('#alertaApellidos').removeClass("alert alert-danger");
         $('#alertaApellidosMensaje').fadeOut();
         return false;
     }
-    else{
+    else {
         $('#alertaApellidos').addClass("alert alert-danger");
         $('#alertaApellidosMensaje').fadeIn();
         $('#apellidos').focus();
@@ -50,14 +50,14 @@ function validarApellidos(){
     }
 }
 
-function validarTelefono(){
+function validarTelefono() {
     let telefono = $('#telefono').val();
-    if(telefono.trim() != ""){
+    if (telefono.trim() != "") {
         $('#alertaTelefono').removeClass("alert alert-danger");
         $('#alertaTelefonoMensaje').fadeOut();
         return false;
     }
-    else{
+    else {
         $('#alertaTelefono').addClass("alert alert-danger");
         $('#alertaTelefonoMensaje').fadeIn();
         $('#telefono').focus();
@@ -65,14 +65,14 @@ function validarTelefono(){
     }
 }
 
-function validarCi(){
+function validarCi() {
     let ci = $('#ci').val();
-    if(ci.trim() != ""){
+    if (ci.trim() != "") {
         $('#alertaCi').removeClass("alert alert-danger");
         $('#alertaCiMensaje1').fadeOut();
         return false;
     }
-    else{
+    else {
         $('#alertaCi').addClass("alert alert-danger");
         $('#alertaCiMensaje1').fadeIn();
         $('#ci').focus();
@@ -80,17 +80,17 @@ function validarCi(){
     }
 }
 
-function validarCiExistente(){
-    if($('#ci').val().trim() == "")
+function validarCiExistente() {
+    if ($('#ci').val().trim() == "")
         return false;
     let ci = $('#ci').val().trim();
     let exists = checkAuxiliar(ci);
-    if(!exists){
+    if (!exists) {
         $('#alertaCi').removeClass("alert alert-danger");
         $('#alertaCiMensaje2').fadeOut();
         return false;
     }
-    else{
+    else {
         $('#alertaCi').addClass("alert alert-danger");
         $('#alertaCiMensaje2').fadeIn();
         $('#ci').focus();
@@ -98,9 +98,9 @@ function validarCiExistente(){
     }
 }
 
-function checkAuxiliar(ci){
+function checkAuxiliar(ci) {
     let exists;
-    let url="php/controlador/ControladorAuxiliar.php";
+    let url = "php/controlador/ControladorAuxiliar.php";
     let data = {
         request: 'getByCi',
         ci: ci
@@ -110,15 +110,15 @@ function checkAuxiliar(ci){
         type: "POST",
         async: false,
         data: data,
-        success : result => {
-            if(result != "empty")
+        success: result => {
+            if (result != "empty")
                 exists = true;
         }
     });
     return exists;
 }
 
-function insertar(){
+function insertar() {
     let nombres = darFormato($('#nombres').val());
     let apellidos = darFormato($('#apellidos').val());
     let ci = $('#ci').val();
@@ -127,7 +127,7 @@ function insertar(){
     let correo = $('#correo').val().trim().toLowerCase();
     let cuenta = $('#cuenta').val();
     let banco = $('#banco').val();
-    let url="php/controlador/ControladorAuxiliar.php";
+    let url = "php/controlador/ControladorAuxiliar.php";
     let data = {
         request: 'insertar',
         nombres: nombres,
@@ -149,11 +149,11 @@ function insertar(){
     insertarConocimientos()
 }
 
-function insertarConocimientos(){
+function insertarConocimientos() {
     let conocimientos = Array();
-    for(let i=1; i<=contadorConocimientos; i++)
-        if($('#conocimiento'+i).val() != "")
-            conocimientos.push($('#conocimiento'+i).val());
+    for (let i = 1; i <= contadorConocimientos; i++)
+        if ($('#conocimiento' + i).val() != "")
+            conocimientos.push($('#conocimiento' + i).val());
     let url = "php/controlador/ControladorConocimiento.php";
     let data = {
         request: "insertarAlUltimo",
@@ -166,30 +166,31 @@ function insertarConocimientos(){
         data: data
     });
     Swal.fire({
-        type:'success',
+        type: 'success',
         title: 'CORRECTO',
         text: '¡Auxiliar añadido exitosamente!',
         animation: true
     });
-    setInterval(function() {
+    setInterval(function () {
         location.reload();
     }, 1000);
-    
+
 }
 
-function darFormato(cadena){
+function darFormato(cadena) {
     let result = cadena.trim().toLowerCase();
     result = result.replace(/\b\w/g, l => l.toUpperCase());
     return result;
 }
 
-function addConocimiento(e){
+function addConocimiento(e) {
     e.preventDefault();
     contadorConocimientosEnVista++;
     contadorConocimientos++;
     let html = `<div data-role="appendRow" id="grupoConocimiento${contadorConocimientos}">
                     <div class="form-inline form-group">
-                    <label for="conocimiento${contadorConocimientos}" style="font-size: 0.75rem;color: #4680ff;">Area de conocimiento</label>
+                        <label class="floating-label" for="conocimiento${contadorConocimientos}">Area de
+                        conocimiento</label>
                         <input input type="text"
                             class="form-control mb-2 mr-sm-2 col-12 col-sm-9 col-md-8 col-lg-9"
                             id="conocimiento${contadorConocimientos}" placeholder="">
@@ -197,12 +198,12 @@ function addConocimiento(e){
                         <!-- file upload ends-->
                         <div class="mx-auto">
                             <button
-                                class="btn btn-sm btn-outline-danger mr-2 mb-2 botoncitoX"
+                                class="btn btn-sm btn-outline-danger rounded-circle mr-2 mb-2 botoncitoX"
                                 onclick="removeConocimiento(event,${contadorConocimientos})">
                                 <i class="feather icon-x"></i>
                             </button>
                             <button
-                                class="btn btn-sm btn-outline-primary  mb-2 botoncitoMas"
+                                class="btn btn-sm btn-outline-primary rounded-circle mb-2 botoncitoMas"
                                 onclick="addConocimiento(event);">
                                 <i class="feather icon-plus"></i>
                             </button>
@@ -212,11 +213,11 @@ function addConocimiento(e){
     $('#conocimientos').append(html);
 }
 
-function removeConocimiento(e,idConocimiento){
+function removeConocimiento(e, idConocimiento) {
     e.preventDefault();
-    if(contadorConocimientosEnVista==1)
+    if (contadorConocimientosEnVista == 1)
         return;
-    $('#grupoConocimiento'+idConocimiento).fadeOut();
-    $('#conocimiento'+idConocimiento).val("");
+    $('#grupoConocimiento' + idConocimiento).fadeOut();
+    $('#conocimiento' + idConocimiento).val("");
     contadorConocimientosEnVista--
 }

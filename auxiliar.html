@@ -173,82 +173,94 @@
 									</h4>
 									<form>
 										<div class="row">
-										<div id="alertaNombres" class="w-100">
-											<div class="col-sm-12 mb-3">
-												<div class="form-group">
-													<label class="floating-label" for="nombres">Nombres</label>
-													<input type="text" class="form-control" id="nombres" placeholder="">
+											<div id="alertaNombres" class="w-100">
+												<div class="col-sm-12">
+													<div class="form-group">
+														<label class="floating-label" for="nombres">Nombres</label>
+														<input type="text" class="form-control" id="nombres"
+															placeholder="">
+													</div>
 												</div>
+												<p id="alertaNombresMensaje" style="display:none;">INGRESE SUS NOMBRES
+												</p>
 											</div>
-											<p id="alertaNombresMensaje" style="display:none;">INGRESE SUS NOMBRES</p>
-										</div>
-										<div id="alertaApellidos" class="w-100">
-											<div class="col-sm-12 mb-0">
-												<div class="form-group">
-													<label class="floating-label" for="apellidos">Apellidos</label>
-													<input type="text" class="form-control" id="apellidos"
-														placeholder="">
+											<div id="alertaApellidos" class="w-100">
+												<div class="col-sm-12">
+													<div class="form-group">
+														<label class="floating-label" for="apellidos">Apellidos</label>
+														<input type="text" class="form-control" id="apellidos"
+															placeholder="">
+													</div>
 												</div>
+												<p id="alertaApellidosMensaje" style="display:none;">INGRESE SUS
+													APELLIDOS</p>
 											</div>
-											<p id="alertaApellidosMensaje" style="display:none;">INGRESE SUS APELLIDOS</p>
-										</div>
-										<div id="alertaCi" class="w-100">
-											<div class="col-9 mb-3">
-												<div class="form-group">
-													<label class="floating-label" for="ci">Carnet de Identidad</label>
-													<input type="text" class="form-control" id="ci" placeholder="">
+											<div id="alertaCi" class="w-100 mx-auto row">
+												<div class="col-8 col-sm-9">
+													<div class="form-group">
+														<label class="floating-label" for="ci">Carnet de
+															Identidad</label>
+														<input type="text" class="form-control" id="ci" placeholder="">
+													</div>
 												</div>
-											</div>
-											<div class="col-3 mb-3">
-												<div class="form-group">
-													<select name="complemento" class="form-control" id="complemento">
-														<option value="CH.">CH.</option>
-														<option value="TJ.">TJ.</option>
-														<option value="PD.">PD.</option>
-														<option value="SC.">SC.</option>
-														<option value="LP.">LP.</option>
-														<option value="OR.">OR.</option>
-														<option value="CB.">CB.</option>
-														<option value="PO.">PO.</option>
-														<option value="BE.">BE.</option>
-													</select>
+												<div class="col-4 col-sm-3">
+													<div class="form-group">
+														<label class="floating-label" for="complemento">Origen</label>
+														<select name="complemento" class="form-control"
+															id="complemento">
+															<option value="" hidden></option>
+															<option value="CH.">CH.</option>
+															<option value="TJ.">TJ.</option>
+															<option value="PD.">PD.</option>
+															<option value="SC.">SC.</option>
+															<option value="LP.">LP.</option>
+															<option value="OR.">OR.</option>
+															<option value="CB.">CB.</option>
+															<option value="PO.">PO.</option>
+															<option value="BE.">BE.</option>
+														</select>
+													</div>
 												</div>
+												<p id="alertaCiMensaje1" style="display:none;">INGRESE SU C.I.</p>
+												<p id="alertaCiMensaje2" style="display:none;">SU C.I. YA TIENE UNA
+													CUENTA REGISTRADA</p>
 											</div>
-											<p id="alertaCiMensaje1" style="display:none;">INGRESE SU C.I.</p>
-                                    		<p id="alertaCiMensaje2" style="display:none;">SU C.I. YA TIENE UNA CUENTA REGISTRADA</p>
-										</div>
-										<div id="alertaTelefono" class="form-group w-100">
-											<div class="col-sm-12 mb-3">
-												<div class="form-group">
-													<label class="floating-label" for="telefono">Teléfono</label>
-													<input type="text" class="form-control" id="telefono" placeholder="">
+											<div id="alertaTelefono" class="w-100">
+												<div class="col-sm-12">
+													<div class="form-group">
+														<label class="floating-label" for="telefono">Teléfono</label>
+														<input type="text" class="form-control" id="telefono"
+															placeholder="">
+													</div>
 												</div>
+												<p id="alertaTelefonoMensaje" style="display:none;">INGRESE SU TELEFONO
+												</p>
 											</div>
-											<p id="alertaTelefonoMensaje" style="display:none;">INGRESE SU TELEFONO</p>
-										</div>
-											<div class="col-sm-12 mb-3">
+											<div class="col-sm-12 mb-2">
 												<div class="form-group">
 													<label class="floating-label" for="correo">Correo</label>
 													<input type="text" class="form-control" id="correo" placeholder="">
 												</div>
 											</div>
 											<div class="col-sm-12 mb-3">
+												<label class="floating-label" for="cuenta">Foto del Auxiliar</label>
 												<div action="php/config/subir.php" class="dropzone w-100" id="dropzone">
 													<div class="fallback">
 														<input type="file" name="file" value="" id="archivo">
 													</div>
 												</div>
 											</div>
-											<div class="col-sm-9 mb-3">
+											<div class="col-8 col-sm-9">
 												<div class="form-group">
 													<label class="floating-label" for="cuenta">Cuenta bancaria</label>
 													<input type="text" class="form-control" id="cuenta" placeholder="">
 												</div>
 											</div>
-											<div class="col-sm-3 mb-3">
+											<div class="col-4 col-sm-3">
 												<div class="form-group">
+													<label class="floating-label" for="banco">Banco</label>
 													<select name="banco" class="form-control" id="banco">
-														<option selected hidden>Banco</option>
+														<option value="" hidden></option>
 														<option value="Union">Union</option>
 														<option value="PRODEM">PRODEM</option>
 														<option value="BNB">BNB</option>
@@ -262,10 +274,11 @@
 												</div>
 											</div>
 
-											<div class="col-sm-12 mb-3" id="conocimientos">
+											<div class="col-sm-12" id="conocimientos">
 												<div data-role="appendRow" id="grupoConocimiento1">
 													<div class="form-inline form-group">
-													<label class="floating-label" for="conocimiento1">Area de conocimiento</label>
+														<label class="floating-label" for="conocimiento1">Area de
+															conocimiento</label>
 														<input input type="text"
 															class="form-control mb-2 mr-sm-2 col-12 col-sm-9 col-md-8 col-lg-9"
 															id="conocimiento1" placeholder="">
@@ -273,23 +286,23 @@
 														<!-- file upload ends-->
 														<div class="mx-auto">
 															<button
-																class="btn btn-sm btn-outline-danger mr-2 mb-2 botoncitoX"
+																class="btn btn-sm btn-outline-danger mr-2 rounded-circle mb-2 botoncitoX"
 																onclick="removeConocimiento(event,1)">
 																<i class="feather icon-x"></i>
 															</button>
 															<button
-																class="btn btn-sm btn-outline-primary  mb-2 botoncitoMas"
+																class="btn btn-sm btn-outline-primary rounded-circle mb-2 botoncitoMas"
 																onclick="addConocimiento(event);">
 																<i class="feather icon-plus"></i>
 															</button>
 														</div>
 													</div> <!-- /div.form-inline -->
-													
+
 												</div>
 											</div>
 											<div class="col-md-6 col-lg-4 mx-auto mb-3">
-												<button type="button"
-													class="btn btn-primary btn-block" id="btnRegistrar">Registrar</button>
+												<button type="button" class="btn btn-primary btn-block"
+													id="btnRegistrar">Registrar</button>
 											</div>
 
 										</div>
@@ -301,6 +314,7 @@
 					</div>
 				</div>
 			</div>
+
 
 
 			<!-- [ Main Content ] end -->
