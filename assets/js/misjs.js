@@ -57,7 +57,7 @@ $(function () {
         // botones de formato
         firstDay: 1,
         format: 'dddd, d !de mmmm !de yyyy', /* formato para el usuario  CARACTERES ESPECIALES LE METEMOS ! */
-        formatSubmit: 'dd/mm/yyyy', //FORMATO PARA EL SERVIDOR
+        formatSubmit: 'yyyy/mm/dd', //FORMATO PARA EL SERVIDOR
         // selector de añop y mes
         selectYears: false, //2 muestra un año antes y uno despues
         // elegimos fechas habilitadas en el date
@@ -69,6 +69,15 @@ $(function () {
         // }
     })
 
+    $('.timepicker').pickatime({
+        clear: 'Borrar',
+        format: 'hh:i A', //formato para el usuario
+        interval: 60, //intervalo entre li
+        min: [7, 0],
+        max: [23, 0]
+
+    })
+
 
     $('#fechaFin').focus(function () {
         $('.fechita2').addClass('elevacion');
@@ -76,6 +85,10 @@ $(function () {
     });
     $('#fechaIni').focus(function () {
         $('.fechita').addClass('elevacion');
+
+    });
+    $('#hora').focus(function () {
+        $('.horita').addClass('elevacion');
 
     });
 

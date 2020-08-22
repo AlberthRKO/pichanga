@@ -17,7 +17,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="Phoenixcoded" />
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/pichanga.jpg" type="image/x-icon">
 
     <link rel="stylesheet" href="assets/js/pickadate.js/themes/default.css">
     <!-- Carga del CSS de "Date Picker" -->
@@ -83,8 +83,8 @@
                                     class="feather icon-file-text"></i></span><span class="pcoded-mtext">Tareas -
                                 Examenes</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="tarea.html" target="_blank">Registrar Tarea</a></li>
-                            <li><a href="listarTarea.html" target="_blank">Listar Tareas</a></li>
+                            <li><a href="tarea.html">Registrar Tarea</a></li>
+                            <li><a href="listarTarea.html">Listar Tareas</a></li>
                         </ul>
                     </li>
                     <li class="nav-item pcoded-menu-caption">
@@ -236,19 +236,39 @@
                                                     <div class="form-group">
                                                         <label class="fechita2" for="fechaFin">Fecha de
                                                             Entrega</label>
-                                                        <input type="date" class="form-control datepicker datepicker2"
-                                                            id="fechaFin" placeholder="">
+                                                        <input type="date" class="form-control datepicker" id="fechaFin"
+                                                            placeholder="">
                                                     </div>
                                                 </div>
                                                 <p id="alertaFechaMensaje" style="display:none;">INDIQUE LAS FECHAS DE
                                                     INICIO/FIN</p>
                                             </div>
 
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label class="horita" for="fechaFin">Hora</label>
+                                                    <input type="time" class="form-control timepicker" id="hora"
+                                                        placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label class="floating-label" for="auxiliar">Auxiliar</label>
+                                                    <select name="auxiliar" class="form-control" id="auxiliar">
+                                                        <option value="" hidden></option>
+                                                        <option value="nada">Sin Asignar</option>
+                                                        <option value="1">Alberth Paredes</option>
+                                                        <option value="2">Alvaro Zapata</option>
+                                                        <option value="3">Marlen Yucra</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
 
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label class="floating-label" for="tipo">Tipo</label>
-                                                    <select name="banco" class="form-control" id="tipo">
+                                                    <select name="tipo" class="form-control" id="tipo">
                                                         <option value="" hidden></option>
                                                         <option value="tarea">Tarea</option>
                                                         <option value="examen">Examen</option>
@@ -374,6 +394,7 @@
 
     <script src="assets/js/pickadate.js/picker.js"></script>
     <script src="assets/js/pickadate.js/picker.date.js"></script>
+    <script src="assets/js/pickadate.js/picker.time.js"></script>
 
     <script src="assets/js/ripple.js"></script>
     <script src="assets/js/pcoded.min.js"></script>

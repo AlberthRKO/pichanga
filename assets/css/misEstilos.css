@@ -21,7 +21,8 @@ Input:focus {
 }
 
 .fechita,
-.fechita2 {
+.fechita2,
+.horita {
     position: absolute;
     top: 11px;
     left: 0;
@@ -44,7 +45,7 @@ Input:focus {
 .card .lista .card {
     /* box-shadow: 0px 0px 15px -4px rgba(56, 57, 58, 0.75) !important; */
     cursor: grab;
-    transition: all .4s ease;
+    transition: all 0.4s ease;
 }
 
 .card .lista .card.seleccion {
@@ -68,6 +69,24 @@ Input:focus {
 }
 
 .btn-primary {
-    background-color: #4680FF !important;
+    background-color: #4680ff !important;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 5px -8px !important;
+}
+
+
+
+
+.tablero1 {
+    border-top: 4px solid #FF5252;
+    border-bottom: 4px solid #FF5252;
+}
+
+.tablero2 {
+    border-top: 4px solid #FFBA57;
+    border-bottom: 4px solid #FFBA57;
+}
+
+.tablero3 {
+    border-top: 4px solid #9CCC65;
+    border-bottom: 4px solid #9CCC65;
 }

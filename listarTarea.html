@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin - Listado Auxiliares</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Phoenixcoded" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/images/pichanga.jpg" type="image/x-icon">
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+
+</head>
+
+<body class="">
+    <!-- [ Pre-loader ] End -->
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!-- [ navigation menu ] start -->
+    <nav class="pcoded-navbar menu-light ">
+        <div class="navbar-wrapper  ">
+            <div class="navbar-content scroll-div ">
+
+                <div class="">
+                    <div class="main-menu-header">
+                        <img class="img-radius" src="assets/images/pichanga.jpg" alt="User-Profile-Image">
+                        <div class="user-details">
+                            <div>Admin</div>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="nav pcoded-inner-navbar ">
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Estadisticas</label>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link "><span class="pcoded-micon"><i
+                                    class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                    </li>
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Módulo Auxiliares</label>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i
+                                    class="feather icon-users"></i></span><span
+                                class="pcoded-mtext">Auxiliares</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="auxiliar.html">Registrar Auxiliar</a></li>
+                            <li><a href="listarAuxiliar.html">Listar Auxiliares</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Módulo de Tareas</label>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i
+                                    class="feather icon-file-text"></i></span><span class="pcoded-mtext">Tareas -
+                                Examenes</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="tarea.html">Registrar Tarea</a></li>
+                            <li><a href="listarTarea.html">Listar Tareas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Tablero de Tareas</label>
+                    </li>
+                    <li class="nav-item">
+                        <a href="tablero.html" class="nav-link "><span class="pcoded-micon"><i
+                                    class="feather icon-tablet"></i></span><span class="pcoded-mtext">Tablero
+                                KANBAN</span></a>
+                    </li>
+
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+    <!-- [ navigation menu ] end -->
+    <!-- [ Header ] start -->
+    <header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
+
+
+        <div class="m-header">
+            <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+            <a href="#!" class="b-brand">
+                <!-- ========   change your logo hear   ============ -->
+                <h3 class=" text-white text-uppercase h4 mt-2 f-w-800">Pichanga</h3>
+            </a>
+            <a href="#!" class="mob-toggler">
+                <i class="feather icon-more-vertical"></i>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="#!" class="pop-search"><i class="feather icon-link"></i></a>
+                    <div class="search-bar">
+                        <div class="d-flex justify-content-around">
+                            <a href="" class="btn btn-primary">1er Mensaje</a>
+                            <a href="" class="btn btn-primary">2do Mensaje</a>
+                            <a href="" class="btn btn-primary">3er Mensaje</a>
+                            <a href="" class="btn btn-primary">4to Mensaje</a>
+                        </div>
+                        <button type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <a href="login.html" class="dud-logout" title="Logout">
+                        <i class="feather icon-log-out"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+    </header>
+    <!-- [ Header ] end -->
+
+
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Tareas</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="#!">Módulo de Tareas</a></li>
+                                <li class="breadcrumb-item"><a href="#!">Listar Tareas</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <!-- [ button ] start -->
+            <div class="row btn-page">
+                <!-- [ default-button ] start -->
+                <div class="col-md-12">
+                    <div class="card table-card">
+                        <div class="card-header">
+                            <h5>Tareas</h5>
+                            <div class="card-header-right">
+                                <div class="btn-group card-option">
+                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <i class="feather icon-more-horizontal"></i>
+                                    </button>
+                                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                                        <li class="dropdown-item full-card"><a href="#!"><span><i
+                                                        class="feather icon-maximize"></i> Maximizar</span><span
+                                                    style="display:none"><i class="feather icon-minimize"></i>
+                                                    Normal</span></a></li>
+                                        <li class="dropdown-item minimize-card"><a href="#!"><span><i
+                                                        class="feather icon-minus"></i> Contraer</span><span
+                                                    style="display:none"><i class="feather icon-plus"></i>
+                                                    Expandir</span></a></li>
+                                        <li class="dropdown-item filtrable"><a href="#!"><span class="filter"><i
+                                                        class="feather icon-filter"></i>
+                                                    Filtrar</span><span class="filter2"><i class="feather icon-x"></i>
+                                                    Cancelar</span></a></li>
+                                        <li class="dropdown-item reload-card"><a href="#!"><i
+                                                    class="feather icon-refresh-cw"></i> Recargar</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0 text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>Tarea</th>
+                                            <th>Cliente</th>
+                                            <th>Fecha de Recepcion</th>
+                                            <th>Fecha de Entrega</th>
+                                            <th>Tipo</th>
+                                            <th>Auxiliar</th>
+                                            <th>Costo</th>
+                                            <th>Estado</th>
+                                            <th>Calificación</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td>Operaciones Fraccionarias</td>
+                                            <td>Roberto Guzman</td>
+                                            <td>11/03/20</td>
+                                            <td>20/03/20</td>
+                                            <td><label class="badge badge-light-primary">Tarea</label></td>
+
+                                            <td>
+                                                <div class="d-inline-block align-middle">
+                                                    <img src="assets/images/user/avatar-4.jpg" alt="user image"
+                                                        class="img-radius wid-40 align-top m-r-15">
+                                                    <div class="d-inline-block">
+                                                        <h6>Alberth Paredes</h6>
+                                                        <p class="text-muted m-b-0">Chuquisaca</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>180 Bs</td>
+                                            <td><label class="badge badge-light-success">Terminado</label></td>
+                                            <td><label class="badge text-warning"><i
+                                                        class="feather icon-star-on"></i>5.0</label></td>
+                                            <td>
+                                                <a class="success p-0" type="button" data-toggle="modal"
+                                                    data-target="#editarAuxiliar">
+                                                    <i class="feather icon-edit"></i>
+                                                </a>
+                                                <a class="success p-0" type="button" data-toggle="modal"
+                                                    data-target="#eliminarAuxiliar">
+                                                    <i class="feather icon-x"></i>
+                                                </a>
+                                                <a class="success p-0" type="button" data-toggle="modal"
+                                                    data-target="#saldoAuxiliar">
+                                                    <i class="feather icon-credit-card"></i>
+                                                </a>
+                                                <a class="success p-0" type="button" data-toggle="modal"
+                                                    data-target="#perfilAuxiliar">
+                                                    <i class="feather icon-eye"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Coche Arduino</td>
+                                            <td>Juan Perez</td>
+                                            <td>25/02/20</td>
+                                            <td>05/05/20</td>
+                                            <td><label class="badge badge-light-danger">Examen</label></td>
+
+                                            <td>
+                                                <div class="d-inline-block align-middle">
+                                                    <img src="assets/images/user/avatar-2.jpg" alt="user image"
+                                                        class="img-radius wid-40 align-top m-r-15">
+                                                    <div class="d-inline-block">
+                                                        <h6>Orlando Paredes</h6>
+                                                        <p class="text-muted m-b-0">Chuquisaca</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>250 Bs</td>
+                                            <td><label class="badge badge-light-warning">En Proceso</label></td>
+                                            <td><label class="badge badge-light-warning"><i
+                                                        class="feather icon-star-on"></i>0.0</label></td>
+                                            <td>
+                                                <a class="success p-0" type="button" data-toggle="modal"
+                                                    data-target="#editarAuxiliar">
+                                                    <i class="feather icon-edit"></i>
+                                                </a>
+                                                <a class="success p-0" type="button" data-toggle="modal"
+                                                    data-target="#eliminarAuxiliar">
+                                                    <i class="feather icon-x"></i>
+                                                </a>
+                                                <a class="success p-0" type="button" data-toggle="modal"
+                                                    data-target="#saldoAuxiliar">
+                                                    <i class="feather icon-credit-card"></i>
+                                                </a>
+                                                <a class="success p-0" type="button" data-toggle="modal"
+                                                    data-target="#perfilAuxiliar">
+                                                    <i class="feather icon-eye"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>componentes Bootstrap</td>
+                                            <td>Ana Mariel</td>
+                                            <td>11/08/20</td>
+                                            <td>20/08/20</td>
+                                            <td><label class="badge badge-light-primary">Tarea</label></td>
+
+                                            <td>
+                                                <div class="d-inline-block align-middle">
+                                                    <img src="assets/images/user/avatar-3.jpg" alt="user image"
+                                                        class="img-radius wid-40 align-top m-r-15">
+                                                    <div class="d-inline-block">
+                                                        <h6>Marlen Yucra</h6>
+                                                        <p class="text-muted m-b-0">Tarija</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>100 Bs</td>
+                                            <td><label class="badge badge-light-danger">Pendiente</label></td>
+                                            <td><label class="badge badge-light-danger"><i
+                                                        class="feather icon-star-on"></i>0.0</label></td>
+                                            <td>
+                                                <a class="success p-0" type="button" data-toggle="modal"
+                                                    data-target="#editarAuxiliar">
+                                                    <i class="feather icon-edit"></i>
+                                                </a>
+                                                <a class="success p-0" type="button" data-toggle="modal"
+                                                    data-target="#eliminarAuxiliar">
+                                                    <i class="feather icon-x"></i>
+                                                </a>
+                                                <a class="success p-0" type="button" data-toggle="modal"
+                                                    data-target="#saldoAuxiliar">
+                                                    <i class="feather icon-credit-card"></i>
+                                                </a>
+                                                <a class="success p-0" type="button" data-toggle="modal"
+                                                    data-target="#perfilAuxiliar">
+                                                    <i class="feather icon-eye"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ split-dropdown-button ] end -->
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Modales -->
+    <!-- eliminar auxi -->
+    <div id="editarAuxiliar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mb-0">Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac
+                        facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn  btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn  btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- [ Main Content ] end -->
+    <!-- Warning Section start -->
+    <!-- Older IE warning message -->
+    <!--[if lt IE 11]>
+        <div class="ie-warning">
+            <h1>Warning!!</h1>
+            <p>You are using an outdated version of Internet Explorer, please upgrade
+               <br/>to any of the following web browsers to access this website.
+            </p>
+            <div class="iew-container">
+                <ul class="iew-download">
+                    <li>
+                        <a href="http://www.google.com/chrome/">
+                            <img src="assets/images/browser/chrome.png" alt="Chrome">
+                            <div>Chrome</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mozilla.org/en-US/firefox/new/">
+                            <img src="assets/images/browser/firefox.png" alt="Firefox">
+                            <div>Firefox</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.opera.com">
+                            <img src="assets/images/browser/opera.png" alt="Opera">
+                            <div>Opera</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.apple.com/safari/">
+                            <img src="assets/images/browser/safari.png" alt="Safari">
+                            <div>Safari</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                            <img src="assets/images/browser/ie.png" alt="">
+                            <div>IE (11 & above)</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>Sorry for the inconvenience!</p>
+        </div>
+    <![endif]-->
+    <!-- Warning Section Ends -->
+
+    <!-- Required Js -->
+    <script src="assets/js/vendor-all.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+    <script src="assets/js/ripple.js"></script>
+    <script src="assets/js/misjs.js"></script>
+    <script src="assets/js/pcoded.min.js"></script>
+    <script src="assets/js/sweetalert2.all.min.js"></script
+	<!-- Required Js Til Here -->
+	<!-- Our custom js -->
+	<script src="assets/js/listarAuxiliar.js"></script>
+    <!-- Our custom js til here -->
+
+
+</body>
+
+</html>
