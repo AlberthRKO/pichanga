@@ -234,38 +234,40 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="form-group">
+                                                        <label class="horita" for="hora">Hora de Recepcion</label>
+                                                        <input type="time" class="form-control timepicker" id="hora"
+                                                            placeholder="">
+                                                    </div>
+                                                </div>
+                                                <p id="alertaFechaMensaje" style="display:none;">INDIQUE LAS FECHAS DE
+                                                    INICIO</p>
+                                            </div>
+                                            <div id="alertaFechas" class="w-100 mx-auto row">
+
+                                                <div class="col-6">
+                                                    <div class="form-group">
                                                         <label class="fechita2" for="fechaFin">Fecha de
                                                             Entrega</label>
                                                         <input type="date" class="form-control datepicker" id="fechaFin"
                                                             placeholder="">
                                                     </div>
                                                 </div>
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label class="horita2" for="hora2">Hora de Entrega</label>
+                                                        <input type="time" class="form-control timepicker" id="hora2"
+                                                            placeholder="">
+                                                    </div>
+                                                </div>
                                                 <p id="alertaFechaMensaje" style="display:none;">INDIQUE LAS FECHAS DE
-                                                    INICIO/FIN</p>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label class="horita" for="fechaFin">Hora</label>
-                                                    <input type="time" class="form-control timepicker" id="hora"
-                                                        placeholder="">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label class="floating-label" for="auxiliar">Auxiliar</label>
-                                                    <select name="auxiliar" class="form-control" id="auxiliar">
-                                                        <option value="" hidden></option>
-                                                        <option value="nada">Sin Asignar</option>
-                                                        <option value="1">Alberth Paredes</option>
-                                                        <option value="2">Alvaro Zapata</option>
-                                                        <option value="3">Marlen Yucra</option>
-                                                    </select>
-                                                </div>
+                                                    FIN</p>
                                             </div>
 
 
-                                            <div class="col-6">
+
+
+
+                                            <div class="col-4">
                                                 <div class="form-group">
                                                     <label class="floating-label" for="tipo">Tipo</label>
                                                     <select name="tipo" class="form-control" id="tipo">
@@ -275,10 +277,22 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-4">
                                                 <div class="form-group">
                                                     <label class="floating-label" for="materia">Materia</label>
                                                     <input type="text" class="form-control" id="materia" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label class="floating-label" for="auxiliar">Auxiliar</label>
+                                                    <select name="auxiliar" class="form-control" id="auxiliar">
+                                                        <option value="" hidden></option>
+                                                        <option value="nada">Sin Asignar</option>
+                                                        <option value="1">Alberth Paredes</option>
+                                                        <option value="2">Alvaro Zapata</option>
+                                                        <option value="3">Marlen Yucra</option>
+                                                    </select>
                                                 </div>
                                             </div>
 

@@ -1,3 +1,7 @@
+body {
+    background: #FF4F5A !important;
+}
+
 .imagensita {
     transition: all 0.4s ease;
 }
@@ -7,8 +11,8 @@
 }
 
 .card-auxi {
-    background: rgb(70, 128, 255);
-    border: 2px solid rgb(70, 128, 255);
+    background: #FF4F5A;
+    border: 2px solid #FF4F5A;
     background: linear-gradient(100deg, #ecf0f5 50%, rgba(255, 255, 255, 1) 50%);
 }
 
@@ -22,7 +26,8 @@ Input:focus {
 
 .fechita,
 .fechita2,
-.horita {
+.horita,
+.horita2 {
     position: absolute;
     top: 11px;
     left: 0;
@@ -35,7 +40,7 @@ Input:focus {
 .elevacion {
     top: -10px;
     font-size: 0.75rem;
-    color: #4680ff;
+    color: #FF4F5A;
 }
 
 /* .card .lista {
@@ -50,7 +55,7 @@ Input:focus {
 
 .card .lista .card.seleccion {
     transform: scale(1.03);
-    box-shadow: 0px 0px 13px -4px rgba(70, 129, 255, 0.75);
+    box-shadow: 0px 0px 13px -4px rgba(255, 59, 90, 0.75);
 }
 
 /* .card .lista .card .drago {
@@ -69,24 +74,98 @@ Input:focus {
 }
 
 .btn-primary {
-    background-color: #4680ff !important;
+    background-color: #FF4F5A !important;
+    border: #FF4F5A !important;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 5px -8px !important;
+}
+
+.btn-primary:hover {
+    background-color: #f1434f !important;
+    border: #f1434f !important;
 }
 
 
 
 
 .tablero1 {
-    border-top: 4px solid #FF5252;
-    border-bottom: 4px solid #FF5252;
+    border-top: 8px solid #FF5252;
+    border-bottom: 8px solid #FF5252;
 }
 
 .tablero2 {
-    border-top: 4px solid #FFBA57;
-    border-bottom: 4px solid #FFBA57;
+    border-top: 8px solid #FFBA57;
+    border-bottom: 8px solid #FFBA57;
 }
 
 .tablero3 {
-    border-top: 4px solid #9CCC65;
-    border-bottom: 4px solid #9CCC65;
+    border-top: 8px solid #9CCC65;
+    border-bottom: 8px solid #9CCC65;
+}
+
+
+.pcoded-navbar.menu-light .pcoded-inner-navbar li>a:hover {
+    color: #FF4F5A !important;
+}
+
+/* Cambios de color */
+
+.pcoded-navbar.menu-light .pcoded-inner-navbar>li.active>a,
+.pcoded-navbar.menu-light .pcoded-inner-navbar>li.pcoded-trigger>a {
+    background: #FF4F5A !important;
+    color: #fff !important;
+}
+
+.pcoded-navbar.menu-light .pcoded-inner-navbar li.active>a {
+    color: #FF4F5A;
+    background: transparent;
+}
+
+
+
+
+.pcoded-navbar .pcoded-inner-navbar li.pcoded-menu-caption {
+
+    color: black !important;
+    color: white;
+}
+
+.pcoded-navbar.menu-light .pcoded-inner-navbar li.pcoded-hasmenu .pcoded-submenu li.active>a:before,
+.pcoded-navbar.menu-light .pcoded-inner-navbar li.pcoded-hasmenu .pcoded-submenu li.pcoded-trigger>a:before,
+.pcoded-navbar.menu-light .pcoded-inner-navbar li.pcoded-hasmenu .pcoded-submenu li:hover>a:before {
+    color: black !important;
+}
+
+
+.page-header-title .m-b-10 {
+    font-size: 2.3rem !important;
+}
+
+
+.btn-outline-primary {
+    color: #FF4F5A;
+    border-color: #FF4F5A;
+}
+
+.btn-outline-danger {
+    color: #444;
+    border-color: #444;
+}
+
+.btn-outline-primary:hover {
+    background-color: #f1434f;
+    border-color: #f1434f;
+}
+
+.btn-outline-danger:hover {
+    background-color: #444;
+    border-color: #444;
+}
+
+
+.form-control:focus {
+    border-bottom-color: transparent;
+    background-size: 100% 100%, 100% 100%;
+    transition-duration: 0.3s;
+    box-shadow: none;
+    background-image: linear-gradient(to top, #FF4F5A 2px, rgba(70, 128, 255, 0) 2px), linear-gradient(to top, #ced4da 1px, rgba(206, 212, 218, 0) 1px);
 }

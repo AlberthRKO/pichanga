@@ -91,6 +91,10 @@ $(function () {
         $('.horita').addClass('elevacion');
 
     });
+    $('#hora2').focus(function () {
+        $('.horita2').addClass('elevacion');
+
+    });
 
 
 });

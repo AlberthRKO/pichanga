@@ -189,11 +189,9 @@ function addConocimiento(e) {
     contadorConocimientos++;
     let html = `<div data-role="appendRow" id="grupoConocimiento${contadorConocimientos}">
                     <div class="form-inline form-group">
-                        <label class="floating-label" for="conocimiento${contadorConocimientos}">Area de
-                        conocimiento</label>
                         <input input type="text"
                             class="form-control mb-2 mr-sm-2 col-12 col-sm-9 col-md-8 col-lg-9"
-                            id="conocimiento${contadorConocimientos}" placeholder="">
+                            id="conocimiento${contadorConocimientos}" placeholder="Otra area de conocimiento">
 
                         <!-- file upload ends-->
                         <div class="mx-auto">
