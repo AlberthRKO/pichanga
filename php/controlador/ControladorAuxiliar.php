@@ -6,16 +6,16 @@
       $nombres = $_POST['nombres'];
       $apellidos = $_POST['apellidos'];
       $ci = $_POST['ci'];
-      $complemento = $_POST['complemento'];
+      $expedido = $_POST['expedido'];
+      $ciudad = $_POST['ciudad'];
       $telefono = $_POST['telefono'];
       $correo = $_POST['correo'];
       $foto = $_POST['foto'];
       $cuenta = $_POST['cuenta'];
       $banco = $_POST['banco'];
-      $auxiliar = new Auxiliar(1,$nombres,$apellidos,$ci,$complemento,$telefono,$correo,"",$cuenta,$banco,"","","0","1");
+      $auxiliar = new Auxiliar(1,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,"",$cuenta,$banco,"","","0","1");
       $result = Auxiliar::insertar($auxiliar);
-      añadirFoto($auxiliar,$foto);
-      añadirConocimientos($auxiliar);
+      addFoto($auxiliar,$foto);
       echo $result;
     break;
     case "getIdUltimoAuxiliar":
@@ -27,13 +27,14 @@
       $nombres = $_POST['nombres'];
       $apellidos = $_POST['apellidos'];
       $ci = $_POST['ci'];
-      $complemento = $_POST['complemento'];
+      $expedido = $_POST['expedido'];
+      $ciudad = $_POST['ciudad'];
       $telefono = $_POST['telefono'];
       $correo = $_POST['correo'];
       $cuenta = $_POST['cuenta'];
       $banco = $_POST['banco'];
       $foto = $_POST['foto'];
-      $auxiliar = new Auxiliar($idAuxiliar,$nombres,$apellidos,$ci,$complemento,$telefono,$correo,$cuenta,$banco,$foto,"","0","1");
+      $auxiliar = new Auxiliar($idAuxiliar,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,$cuenta,$banco,$foto,"","0","1");
       Auxiliar::editar($auxiliar);
     break;
     case "eliminar":
@@ -66,7 +67,7 @@
     break;
   }
 
-  function añadirFoto($auxiliar,$foto){
+  function addFoto($auxiliar,$foto){
     if(file_exists("../../assets/images/files/$foto")){
       $fotoAsignada = "default.jpg";
       if($foto != "" && $foto != null){

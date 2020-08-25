@@ -4,7 +4,8 @@
         public $nombres;
         public $apellidos;
         public $ci;
-        public $complemento;
+        public $expedido;
+        public $ciudad;
         public $telefono;
         public $correo;
         public $foto;
@@ -16,12 +17,13 @@
         public $activo;
 
         
-        public function __construct($idAuxiliar,$nombres,$apellidos,$ci,$complemento,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,$contrasena,$rol,$activo) {
+        public function __construct($idAuxiliar,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,$contrasena,$rol,$activo) {
             $this->idAuxiliar = $idAuxiliar;
             $this->nombres = $nombres;
             $this->apellidos = $apellidos;
             $this->ci = $ci;
-            $this->complemento = $complemento;
+            $this->expedido = $expedido;
+            $this->ciudad = $ciudad;
             $this->telefono = $telefono;
             $this->correo = $correo;
             $this->foto = $foto;
@@ -36,9 +38,9 @@
         public static function insertar($auxiliar){
             include('../connection.php');
 
-            $query = $db->prepare("INSERT INTO auxiliares(NOMBRES,APELLIDOS,CI,COMPLEMENTO,TELEFONO,CORREO,CUENTA,BANCO,FECHAREGISTRO,CONTRASENA)
-                                   VALUES(?,?,?,?,?,?,?,?,NOW(),'')");
-            $query->bind_param("ssssssss", $auxiliar->nombres, $auxiliar->apellidos, $auxiliar->ci, $auxiliar->complemento, $auxiliar->telefono, $auxiliar->correo, $auxiliar->cuenta, $auxiliar->banco);
+            $query = $db->prepare("INSERT INTO auxiliares(NOMBRES,APELLIDOS,CI,EXPEDIDO,CIUDAD,TELEFONO,CORREO,CUENTA,BANCO,FECHAREGISTRO,CONTRASENA)
+                                   VALUES(?,?,?,?,?,?,?,?,?,NOW(),'')");
+            $query->bind_param("sssssssss", $auxiliar->nombres, $auxiliar->apellidos, $auxiliar->ci, $auxiliar->expedido, $auxiliar->ciudad, $auxiliar->telefono, $auxiliar->correo, $auxiliar->cuenta, $auxiliar->banco);
             
             if($query->execute()){
                 $query->close();
@@ -67,8 +69,8 @@
 
         public static function editar($auxiliar){
             include('../connection.php');
-            $query = $db->prepare("UPDATE auxiliares SET NOMBRES=?,APELLIDOS=?,CI=?,COMPLEMENTO=?,TELEFONO=?,CORREO=?,FOTO=?,CUENTA=?,BANCO=? WHERE IDAUXILIAR=?");
-            $query->bind_param("sssssssssi", $auxiliar->nombres, $auxiliar->apellidos, $auxiliar->ci, $auxiliar->complemento, $auxiliar->telefono, $auxiliar->correo, $auxiliar->foto, $auxiliar->cuenta, $auxiliar->banco, $auxiliar->idAuxiliar);
+            $query = $db->prepare("UPDATE auxiliares SET NOMBRES=?,APELLIDOS=?,CI=?,EXPEDIDO=?,CIUDAD=?,TELEFONO=?,CORREO=?,FOTO=?,CUENTA=?,BANCO=? WHERE IDAUXILIAR=?");
+            $query->bind_param("ssssssssssi", $auxiliar->nombres, $auxiliar->apellidos, $auxiliar->ci, $auxiliar->expedido, $auxiliar->ciudad, $auxiliar->telefono, $auxiliar->correo, $auxiliar->foto, $auxiliar->cuenta, $auxiliar->banco, $auxiliar->idAuxiliar);
             
             if($query->execute()){
                 $query->close();
@@ -110,11 +112,11 @@
                     return null;
                 
                 //Indicamos la variable donde se guardaran los resultados
-                $query->bind_result($idAuxiliar,$nombres,$apellidos,$ci,$complemento,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,$contrasena,$rol,$activo);
+                $query->bind_result($idAuxiliar,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,$contrasena,$rol,$activo);
                 
                 //listamos todos los resultados
                 while($query->fetch()){
-                    $auxiliar = new Auxiliar($idAuxiliar,$nombres,$apellidos,$ci,$complemento,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,$contrasena,$rol,$activo);
+                    $auxiliar = new Auxiliar($idAuxiliar,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,$contrasena,$rol,$activo);
                 }
                 //Cerramos la conexion
                 $query->close();
@@ -139,11 +141,11 @@
                     return null;
                 
                 //Indicamos la variable donde se guardaran los resultados
-                $query->bind_result($idAuxiliar,$nombres,$apellidos,$ci,$complemento,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,$contrasena,$rol,$activo);
+                $query->bind_result($idAuxiliar,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,$contrasena,$rol,$activo);
                 
                 //listamos todos los resultados
                 while($query->fetch()){
-                    $auxiliar = new Auxiliar($idAuxiliar,$nombres,$apellidos,$ci,$complemento,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,$contrasena,$rol,$activo);
+                    $auxiliar = new Auxiliar($idAuxiliar,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,$contrasena,$rol,$activo);
                 }
                 //Cerramos la conexion
                 $query->close();
@@ -168,11 +170,11 @@
                     return null;
                 
                 //Indicamos la variable donde se guardaran los resultados
-                $query->bind_result($idAuxiliar,$nombres,$apellidos,$ci,$complemento,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,$contrasena,$rol,$activo);
+                $query->bind_result($idAuxiliar,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,$contrasena,$rol,$activo);
                 
                 //listamos todos los resultados
                 while($query->fetch()){
-                    $auxiliarActual = new Auxiliar($idAuxiliar,$nombres,$apellidos,$ci,$complemento,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,"",$rol,$activo);
+                    $auxiliarActual = new Auxiliar($idAuxiliar,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,$foto,$cuenta,$banco,$fechaRegistro,"",$rol,$activo);
                     array_push($auxiliares,$auxiliarActual);
                 }
                 //Cerramos la conexion
