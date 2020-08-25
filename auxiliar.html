@@ -209,9 +209,9 @@
 												</div>
 												<div class="col-4 col-sm-3">
 													<div class="form-group">
-														<label class="floating-label" for="complemento">Origen</label>
-														<select name="complemento" class="form-control"
-															id="complemento">
+														<label class="floating-label" for="expedido">Origen</label>
+														<select name="expedido" class="form-control"
+															id="expedido">
 															<option value="" hidden></option>
 															<option value="CH.">CH.</option>
 															<option value="TJ.">TJ.</option>
@@ -228,6 +228,16 @@
 												<p id="alertaCiMensaje1" style="display:none;">INGRESE SU C.I.</p>
 												<p id="alertaCiMensaje2" style="display:none;">SU C.I. YA TIENE UNA
 													CUENTA REGISTRADA</p>
+											</div>
+											<div id="alertaCiudad" class="w-100">
+												<div class="col-sm-12">
+													<div class="form-group">
+														<label class="floating-label" for="ciudad">Ciudad de residencia</label>
+														<input type="text" class="form-control" id="ciudad"
+															placeholder="">
+													</div>
+												</div>
+												<p id="alertaCiudadMensaje" style="display:none;">INGRESE SU CIUDAD DE RESIDENCIA</p>
 											</div>
 											<div id="alertaTelefono" class="w-100">
 												<div class="col-sm-12">
@@ -247,7 +257,7 @@
 												</div>
 											</div>
 											<div class="col-sm-12 mb-3">
-												<label class="floating-label" for="cuenta">Foto del Auxiliar</label>
+												<label class="floating-label" for="archivo">Foto del Auxiliar</label>
 												<div action="php/config/subir.php" class="dropzone w-100" id="dropzone">
 													<div class="fallback">
 														<input type="file" name="file" value="" id="archivo">

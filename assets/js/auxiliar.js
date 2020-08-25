@@ -122,7 +122,8 @@ function insertar() {
     let nombres = darFormato($('#nombres').val());
     let apellidos = darFormato($('#apellidos').val());
     let ci = $('#ci').val();
-    let complemento = $('#complemento').val();
+    let expedido = $('#expedido').val();
+    let ciudad = darFormato($('#ciudad').val());
     let telefono = $('#telefono').val().trim();
     let correo = $('#correo').val().trim().toLowerCase();
     let cuenta = $('#cuenta').val();
@@ -133,7 +134,8 @@ function insertar() {
         nombres: nombres,
         apellidos: apellidos,
         ci: ci,
-        complemento: complemento,
+        expedido: expedido,
+        ciudad: ciudad,
         telefono: telefono,
         correo: correo,
         foto: foto,
@@ -144,7 +146,10 @@ function insertar() {
         url: url,
         type: "POST",
         async: false,
-        data: data
+        data: data,
+        success: result =>{
+            console.log(result);
+        }
     });
     insertarConocimientos()
 }
@@ -171,9 +176,9 @@ function insertarConocimientos() {
         text: '¡Auxiliar añadido exitosamente!',
         animation: true
     });
-    setInterval(function () {
+    /*setInterval(function () {Arreglar porq no se inserto el usuario
         location.reload();
-    }, 1000);
+    }, 1000);*/
 
 }
 

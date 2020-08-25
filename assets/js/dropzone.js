@@ -260,12 +260,12 @@ var Dropzone =
            * The `options.transformFile` function uses these options, so if the `transformFile` function
            * is overridden, these options don't do anything.
            */
-          resizeWidth: null,
+          resizeWidth: 500,
 
           /**
            * See `resizeWidth`.
            */
-          resizeHeight: null,
+          resizeHeight: 500,
 
           /**
            * The mime type of the resized image (before it gets uploaded to the server).
@@ -283,7 +283,7 @@ var Dropzone =
            * How the images should be scaled down in case both, `resizeWidth` and `resizeHeight` are provided.
            * Can be either `contain` or `crop`.
            */
-          resizeMethod: 'contain',
+          resizeMethod: 'crop',
 
           /**
            * The base that is used to calculate the filesize. You can change this to
@@ -473,7 +473,7 @@ var Dropzone =
            * Displayed if `maxFiles` is st and exceeded.
            * The string `{{maxFiles}}` will be replaced by the configuration value.
            */
-          dictMaxFilesExceeded: "Solo puedes tener una foto de perfil, borre todas las fotos y suba la nueva foto de perfil.",
+          dictMaxFilesExceeded: "Solo puedes tener una foto de perfil, borre todas las fotos con el botón 'x' de encima, y suba la nueva foto de perfil.",
 
           /**
            * Allows you to translate the different units. Starting with `tb` for terabytes and going down to

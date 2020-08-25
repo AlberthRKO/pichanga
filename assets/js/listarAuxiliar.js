@@ -42,11 +42,12 @@ function getTodosConocimientos(){
 }
 
 function listarAuxiliares(){
-    let departamentos = {'CH.':'Chuquisaca','TJ.':"Tarija",'PD.':'Pando','SC.':'Santa Cruz','LP.':'La Paz','OR.':'Oruro','CB.':'Cochabamba','PO.':'Potosí','BE.':'Beni'};
+    //let departamentos = {'CH.':'Chuquisaca','TJ.':"Tarija",'PD.':'Pando','SC.':'Santa Cruz','LP.':'La Paz','OR.':'Oruro','CB.':'Cochabamba','PO.':'Potosí','BE.':'Beni'};
     auxiliares.forEach(auxiliar => {
         let nombre = auxiliar.nombres + " " + auxiliar.apellidos;
-        let ci = auxiliar.ci;
-        let departamento = departamentos[auxiliar.complemento];
+        let ci = auxiliar.ci + auxiliar.expedido;
+        //let departamento = departamentos[auxiliar.complemento];
+        let ciudad = auxiliar.ciudad;
         let etiquetaConcimientos = setConocimientosByAuxiliar(auxiliar);
         let foto = auxiliar.foto;
 
@@ -57,7 +58,7 @@ function listarAuxiliares(){
                                     class="img-radius wid-40 align-top m-r-15">
                                 <div class="d-inline-block">
                                     <h6>${nombre}</h6>
-                                    <p class="text-muted m-b-0">${departamento}</p>
+                                    <p class="text-muted m-b-0">${ciudad}</p>
                                 </div>
                             </div>
                         </td>
