@@ -13,9 +13,13 @@
 	<!-- Favicon icon -->
 	<link rel="icon" href="assets/images/pichanga.jpg" type="image/x-icon">
 
+	<link rel="stylesheet" type="text/css" href="assets/css/dropzone.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/sweetalert2.min.css">
+	<script type="text/javascript" src="assets/js/dropzone.js"></script>
 	<!-- vendor css -->
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/misEstilos.css">
+
 
 
 
@@ -228,18 +232,142 @@
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalCenterTitle">Modal Title</h5>
+					<h5 class="modal-title" id="exampleModalCenterTitle">Editar Auxiliar</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
 							aria-hidden="true">&times;</span></button>
 				</div>
 				<div class="modal-body">
-					<p class="mb-0">Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac
-						facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-					</p>
+					<form>
+						<div class="row">
+							<div id="alertaNombres" class="w-100">
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label class="floating-label" for="nombres">Nombres</label>
+										<input type="text" class="form-control" id="nombres" placeholder="">
+									</div>
+								</div>
+								<p id="alertaNombresMensaje" style="display:none;">INGRESE SUS NOMBRES
+								</p>
+							</div>
+							<div id="alertaApellidos" class="w-100">
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label class="floating-label" for="apellidos">Apellidos</label>
+										<input type="text" class="form-control" id="apellidos" placeholder="">
+									</div>
+								</div>
+								<p id="alertaApellidosMensaje" style="display:none;">INGRESE SUS
+									APELLIDOS</p>
+							</div>
+							<div id="alertaCi" class="w-100 mx-auto row">
+								<div class="col-8 col-sm-9">
+									<div class="form-group">
+										<label class="floating-label" for="ci">Carnet de
+											Identidad</label>
+										<input type="text" class="form-control" id="ci" placeholder="">
+									</div>
+								</div>
+								<div class="col-4 col-sm-3">
+									<div class="form-group">
+										<label class="floating-label" for="complemento">Origen</label>
+										<select name="complemento" class="form-control" id="complemento">
+											<option value="" hidden></option>
+											<option value="CH.">CH.</option>
+											<option value="TJ.">TJ.</option>
+											<option value="PD.">PD.</option>
+											<option value="SC.">SC.</option>
+											<option value="LP.">LP.</option>
+											<option value="OR.">OR.</option>
+											<option value="CB.">CB.</option>
+											<option value="PO.">PO.</option>
+											<option value="BE.">BE.</option>
+										</select>
+									</div>
+								</div>
+								<p id="alertaCiMensaje1" style="display:none;">INGRESE SU C.I.</p>
+								<p id="alertaCiMensaje2" style="display:none;">SU C.I. YA TIENE UNA
+									CUENTA REGISTRADA</p>
+							</div>
+							<div id="alertaTelefono" class="w-100">
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label class="floating-label" for="telefono">Teléfono</label>
+										<input type="text" class="form-control" id="telefono" placeholder="">
+									</div>
+								</div>
+								<p id="alertaTelefonoMensaje" style="display:none;">INGRESE SU TELEFONO
+								</p>
+							</div>
+							<div class="col-sm-12 mb-2">
+								<div class="form-group">
+									<label class="floating-label" for="correo">Correo</label>
+									<input type="text" class="form-control" id="correo" placeholder="">
+								</div>
+							</div>
+							<div class="col-sm-12 mb-3">
+								<label class="floating-label" for="cuenta">Foto del Auxiliar</label>
+								<div action="php/config/subir.php" class="dropzone w-100" id="dropzone">
+									<div class="fallback">
+										<input type="file" name="file" value="" id="archivo">
+									</div>
+								</div>
+							</div>
+							<div class="col-8 col-sm-9">
+								<div class="form-group">
+									<label class="floating-label" for="cuenta">Cuenta bancaria</label>
+									<input type="text" class="form-control" id="cuenta" placeholder="">
+								</div>
+							</div>
+							<div class="col-4 col-sm-3">
+								<div class="form-group">
+									<label class="floating-label" for="banco">Banco</label>
+									<select name="banco" class="form-control" id="banco">
+										<option value="" hidden></option>
+										<option value="Union">Union</option>
+										<option value="PRODEM">PRODEM</option>
+										<option value="BNB">BNB</option>
+										<option value="SOL">SOL</option>
+										<option value="BCP">BCP</option>
+										<option value="Mercantíl">Mercantíl</option>
+										<option value="FASSIL">FASSIL</option>
+										<option value="Wester Union">Wester Union</option>
+										<option value="Tigo Money">Tigo Money</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-sm-12" id="conocimientos">
+								<div data-role="appendRow" id="grupoConocimiento1">
+									<div class="form-inline form-group">
+										<label class="floating-label" for="conocimiento1">Areas de
+											conocimiento</label>
+										<input input type="text"
+											class="form-control mb-2 mr-sm-2 col-12 col-sm-9 col-md-8 col-lg-9"
+											id="conocimiento1" placeholder="">
+
+										<!-- file upload ends-->
+										<div class="mx-auto">
+											<button
+												class="btn btn-sm btn-outline-danger mr-2 rounded-circle mb-2 botoncitoX"
+												onclick="removeConocimiento(event,1)">
+												<i class="feather icon-x"></i>
+											</button>
+											<button
+												class="btn btn-sm btn-outline-primary rounded-circle mb-2 botoncitoMas"
+												onclick="addConocimiento(event);">
+												<i class="feather icon-plus"></i>
+											</button>
+										</div>
+									</div> <!-- /div.form-inline -->
+
+								</div>
+							</div>
+
+						</div>
+					</form>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn  btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn  btn-primary">Save changes</button>
+				<div class="modal-footer py-2 mx-auto">
+					<button type="button" class="btn  btn-primary rounded" data-dismiss="modal">Guardar</button>
 				</div>
 			</div>
 		</div>
@@ -247,69 +375,262 @@
 
 
 
+	<div id="eliminarAuxiliar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle">Eliminar Auxiliar</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body">
+					<p>Estas seguro que quieres eliminar al auxiliar <span class="font-weight-bold">Alberth
+							Paredes</span>?</p>
+				</div>
+				<div class="modal-footer py-2 mx-auto">
+					<button type="button" class="btn  btn-primary rounded" data-dismiss="modal">Guardar</button>
+					<button type="button" class="btn  btn-secondary rounded" data-dismiss="modal">Cancelar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="saldoAuxiliar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle">Saldo Auxiliar</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body">
+					<div class="row text-center">
+						<div class="col-6">
+							<label class=" elevacion">Saldo Actual</label>
+							<p class="text-muted font-weight-bold">75 Bs</p>
+						</div>
+						<div class="col-6">
+							<label class=" elevacion">Último deposito</label>
+							<p class="text-muted font-weight-bold">50 Bs</p>
+						</div>
+					</div>
+
+					<h6 class="mt-2">Registros de Pago</h6>
+
+					<table class="table table-hover mb-0 text-center">
+						<thead>
+							<tr>
+								<th>Descripción</th>
+								<th>Monto Depositado</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<td>De 2 tareas de Calculo 1</td>
+								<td>120 Bs</td>
+							</tr>
+							<tr>
+								<td>De 1 tarea de diseño</td>
+								<td>50 Bs</td>
+							</tr>
+							<tr>
+								<td>Examen Calculo 2</td>
+								<td>150 Bs</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+				<button class="btn btn-sm btn-primary rounded-circle mx-auto mb-4 mt-0" data-toggle="modal"
+					data-target="#nuevaRegistro" data-toggle="tooltip" data-placement="top" title="Nuevo Registro">
+					<i class="feather icon-plus"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="nuevaRegistro" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-sm mx-auto" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle">Nuevo Registro</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body">
+					<div class="col-sm-12">
+						<div class="form-group">
+							<label class="floating-label" for="descripcionTarea">Descripcion
+								deposito</label>
+							<textarea class="form-control" id="descripcionTarea" rows="3"></textarea>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="form-group">
+							<label class="floating-label" for="ganancia">Cantidad</label>
+							<input type="number" min="1" pattern="^[0-9]+" class="form-control" id="ganancia"
+								placeholder="">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer py-2 mx-auto">
+					<button type="button" class="btn  btn-primary rounded" data-dismiss="modal">Guardar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="perfilAuxiliar" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content">
+				<div class="position-relative">
+					<div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150"
+							preserveAspectRatio="none" style="height: 100%; width: 100%;">
+							<path d="M0.00,49.98 C149.83,148.52 354.68,150.48 500.00,49.98 L500.00,0.00 L0.00,0.00 Z"
+								style="stroke: none; fill: #FF4F5A;"></path>
+						</svg></div>
+				</div>
+				<div class="modal-header tituloAuxi border-0">
+					<h5 class="modal-title text-white" id="exampleModalCenterTitle">Perfil Auxiliar</h5>
+					<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body">
+					<img src="assets/images/user/avatar-4.jpg" alt="user image"
+						class="img-radius wid-60 imagenAuxi mt-2 mb-2">
+					<h4 class="text-center font-weight-bold h5">Alberth Paredes</h4>
+					<div class="row text-center">
+						<div class="col-6 col-lg-4">
+							<label class="elevacion">Nombre</label>
+							<p class="text-muted font-weight-bold">Alberth Orlando</p>
+						</div>
+						<div class="col-6 col-lg-4">
+							<label class="elevacion">Apellidos</label>
+							<p class="text-muted font-weight-bold">Paredes Mamani</p>
+						</div>
+						<div class="col-6 col-lg-4">
+							<label class="elevacion">C. I.</label>
+							<p class="text-muted font-weight-bold">14258827</p>
+						</div>
+						<div class="col-6 col-lg-4">
+							<label class="elevacion">Residencia</label>
+							<p class="text-muted font-weight-bold">Sucre</p>
+						</div>
+						<div class="col-6 col-lg-4">
+							<label class="elevacion">Telefono</label>
+							<p class="text-muted font-weight-bold">67981983</p>
+						</div>
+						<div class="col-6 col-lg-4">
+							<label class="elevacion">Correo</label>
+							<p class="text-muted font-weight-bold">orlando.alb77@gmail.com</p>
+						</div>
+						<div class="col-6 col-lg-4">
+							<label class="elevacion">Cuenta Bancaria</label>
+							<p class="text-muted font-weight-bold">1-54689598</p>
+						</div>
+						<div class="col-6 col-lg-4">
+							<label class="elevacion">Banco</label>
+							<p class="text-muted font-weight-bold">Tigo Money</p>
+						</div>
+						<div class="col-6 col-lg-4">
+							<label class="elevacion">Saldo</label>
+							<p class="text-muted font-weight-bold">70 Bs</p>
+						</div>
+						<div class="col-6 col-lg-4 mx-auto">
+							<label class="elevacion">Calificación</label>
+							<p class="text-muted font-weight-bold"><i class="feather icon-star-on text-warning"></i>
+								4.8</p>
+						</div>
+						<div class="col-6 col-lg-4 mx-auto">
+							<label class="elevacion">Conocimientos</label>
+							<p class="text-muted font-weight-bold">Calculo 1, Calculo 2, Diseño Web</p>
+						</div>
+					</div>
+					<h6 class="mt-2">Tareas del Auxiliar</h6>
+
+					<div class="table-responsive">
+						<div class="table-responsive">
+							<table class="table table-hover mb-0 text-center">
+								<thead>
+									<tr>
+										<th>Tarea</th>
+										<th>Cliente</th>
+										<th>Tipo</th>
+										<th>Ganancia</th>
+										<th>Estado</th>
+										<th>Calificación</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<tr>
+										<td>Operaciones Fraccionarias</td>
+										<td>Roberto Guzman</td>
+										<td><label class="badge badge-light-primary">Tarea</label></td>
+										<td>100 Bs</td>
+										<td><label class="badge badge-light-success">Terminado</label></td>
+										<td><label class="badge text-warning"><i
+													class="feather icon-star-on"></i>5.0</label></td>
+									</tr>
+									<tr>
+										<td>Coche Arduino</td>
+										<td>Juan Perez</td>
+										<td><label class="badge badge-light-danger">Examen</label></td>
+										<td>150 Bs</td>
+										<td><label class="badge badge-light-warning">En Proceso</label></td>
+										<td><label class="badge badge-light-warning"><i
+													class="feather icon-star-on"></i>0.0</label></td>
+									</tr>
+									<tr>
+										<td>componentes Bootstrap</td>
+										<td>Ana Mariel</td>
+										<td><label class="badge badge-light-primary">Tarea</label></td>
+										<td>50 Bs</td>
+										<td><label class="badge badge-light-danger">Pendiente</label></td>
+										<td><label class="badge badge-light-danger"><i
+													class="feather icon-star-on"></i>0.0</label></td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
 
 
 
 
-	<!-- [ Main Content ] end -->
-	<!-- Warning Section start -->
-	<!-- Older IE warning message -->
-	<!--[if lt IE 11]>
-        <div class="ie-warning">
-            <h1>Warning!!</h1>
-            <p>You are using an outdated version of Internet Explorer, please upgrade
-               <br/>to any of the following web browsers to access this website.
-            </p>
-            <div class="iew-container">
-                <ul class="iew-download">
-                    <li>
-                        <a href="http://www.google.com/chrome/">
-                            <img src="assets/images/browser/chrome.png" alt="Chrome">
-                            <div>Chrome</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.mozilla.org/en-US/firefox/new/">
-                            <img src="assets/images/browser/firefox.png" alt="Firefox">
-                            <div>Firefox</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.opera.com">
-                            <img src="assets/images/browser/opera.png" alt="Opera">
-                            <div>Opera</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.apple.com/safari/">
-                            <img src="assets/images/browser/safari.png" alt="Safari">
-                            <div>Safari</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                            <img src="assets/images/browser/ie.png" alt="">
-                            <div>IE (11 & above)</div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <p>Sorry for the inconvenience!</p>
-        </div>
-    <![endif]-->
-	<!-- Warning Section Ends -->
 
-	<!-- Required Js -->
-	<script src="assets/js/vendor-all.min.js"></script>
-	<script src="assets/js/plugins/bootstrap.min.js"></script>
-	<script src="assets/js/ripple.js"></script>
-	<script src="assets/js/misjs.js"></script>
-	<script src="assets/js/pcoded.min.js"></script>
-	<script src="assets/js/sweetalert2.all.min.js"></script
-	<!-- Required Js Til Here -->
-	<!-- Our custom js -->
-	<script src="assets/js/listarAuxiliar.js"></script>
-	<!-- Our custom js til here -->
+
+
+
+
+
+		<!-- Warning Section Ends -->
+
+		<!-- Required Js -->
+		<script src="assets/js/vendor-all.min.js"></script>
+		<script src="assets/js/plugins/bootstrap.min.js"></script>
+		<script src="assets/js/ripple.js"></script>
+		<script src="assets/js/misjs.js"></script>
+		<script src="assets/js/pcoded.min.js"></script>
+		<script src="assets/js/sweetalert2.all.min.js"></script>
+		<!-- Required Js Til Here -->
+		<!-- Our custom js -->
+		<script src="assets/js/auxiliar.js"></script>
+		<!-- Required Js Til Here -->
+		<!-- Our custom js -->
+		<script src="assets/js/listarAuxiliar.js"></script>
+		<!-- Our custom js til here -->
 
 
 </body>
