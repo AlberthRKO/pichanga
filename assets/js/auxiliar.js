@@ -146,10 +146,7 @@ function insertar() {
         url: url,
         type: "POST",
         async: false,
-        data: data,
-        success: result =>{
-            console.log(result);
-        }
+        data: data
     });
     insertarConocimientos()
 }
@@ -175,11 +172,9 @@ function insertarConocimientos() {
         title: 'CORRECTO',
         text: '¡Auxiliar añadido exitosamente!',
         animation: true
+    }).then(() => {
+        window.location = "auxiliar.html";
     });
-    /*setInterval(function () {Arreglar porq no se inserto el usuario
-        location.reload();
-    }, 1000);*/
-
 }
 
 function darFormato(cadena) {
