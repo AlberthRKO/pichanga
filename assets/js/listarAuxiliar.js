@@ -50,6 +50,7 @@ function listarAuxiliares(){
         let ciudad = auxiliar.ciudad;
         let etiquetaConcimientos = setConocimientosByAuxiliar(auxiliar);
         let foto = auxiliar.foto;
+        let telefono = auxiliar.telefono;
 
             html = `<tr>
                         <td>
@@ -62,7 +63,7 @@ function listarAuxiliares(){
                                 </div>
                             </div>
                         </td>
-                        <td>${ci}</td>
+                        <td><a href="https://wa.me/591${telefono}" target="_blank">${telefono}</a></td>
                         <td>${etiquetaConcimientos}</td>
                         <td><i class="feather icon-star-on text-warning"></i>
                             4.8
