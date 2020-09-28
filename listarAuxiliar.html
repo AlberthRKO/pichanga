@@ -15,7 +15,7 @@
 
 	<link rel="stylesheet" type="text/css" href="assets/css/dropzone.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/sweetalert2.min.css">
-	<script type="text/javascript" src="assets/js/dropzone.js"></script>
+	<script type="text/javascript" src="assets/js/dropzone.js?v=2"></script>
 	<!-- vendor css -->
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/misEstilos.css">
@@ -227,7 +227,7 @@
 
 	<!-- Modales -->
 	<!-- eliminar auxi -->
-	<div id="editarAuxiliar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+	<div id="editarAuxiliarModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
 		aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
@@ -242,8 +242,7 @@
 							<div id="alertaNombres" class="w-100">
 								<div class="col-sm-12">
 									<div class="form-group">
-										<label class="floating-label" for="nombres">Nombres</label>
-										<input type="text" class="form-control" id="nombres" placeholder="">
+										<input type="text" class="form-control" id="nombres" placeholder="Nombres">
 									</div>
 								</div>
 								<p id="alertaNombresMensaje" style="display:none;">INGRESE SUS NOMBRES
@@ -252,8 +251,7 @@
 							<div id="alertaApellidos" class="w-100">
 								<div class="col-sm-12">
 									<div class="form-group">
-										<label class="floating-label" for="apellidos">Apellidos</label>
-										<input type="text" class="form-control" id="apellidos" placeholder="">
+										<input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
 									</div>
 								</div>
 								<p id="alertaApellidosMensaje" style="display:none;">INGRESE SUS
@@ -262,16 +260,13 @@
 							<div id="alertaCi" class="w-100 mx-auto row">
 								<div class="col-8 col-sm-9">
 									<div class="form-group">
-										<label class="floating-label" for="ci">Carnet de
-											Identidad</label>
-										<input type="text" class="form-control" id="ci" placeholder="">
+										<input type="text" class="form-control" id="ci" placeholder="Carnet de Identidad">
 									</div>
 								</div>
 								<div class="col-4 col-sm-3">
 									<div class="form-group">
-										<label class="floating-label" for="complemento">Origen</label>
-										<select name="complemento" class="form-control" id="complemento">
-											<option value="" hidden></option>
+										<select name="expedido" class="form-control" id="expedido">
+											<option value="0" disabled>Expedido</option>
 											<option value="CH.">CH.</option>
 											<option value="TJ.">TJ.</option>
 											<option value="PD.">PD.</option>
@@ -291,8 +286,7 @@
 							<div id="alertaTelefono" class="w-100">
 								<div class="col-sm-12">
 									<div class="form-group">
-										<label class="floating-label" for="telefono">Teléfono</label>
-										<input type="text" class="form-control" id="telefono" placeholder="">
+										<input type="text" class="form-control" id="telefono" placeholder="Teléfono">
 									</div>
 								</div>
 								<p id="alertaTelefonoMensaje" style="display:none;">INGRESE SU TELEFONO
@@ -300,8 +294,7 @@
 							</div>
 							<div class="col-sm-12 mb-2">
 								<div class="form-group">
-									<label class="floating-label" for="correo">Correo</label>
-									<input type="text" class="form-control" id="correo" placeholder="">
+									<input type="text" class="form-control" id="correo" placeholder="Correo">
 								</div>
 							</div>
 							<div class="col-sm-12 mb-3">
@@ -314,15 +307,13 @@
 							</div>
 							<div class="col-8 col-sm-9">
 								<div class="form-group">
-									<label class="floating-label" for="cuenta">Cuenta bancaria</label>
-									<input type="text" class="form-control" id="cuenta" placeholder="">
+									<input type="text" class="form-control" id="cuenta" placeholder="Cuenta bancaria">
 								</div>
 							</div>
 							<div class="col-4 col-sm-3">
 								<div class="form-group">
-									<label class="floating-label" for="banco">Banco</label>
 									<select name="banco" class="form-control" id="banco">
-										<option value="" hidden></option>
+										<option value="0" disabled>Banco</option>
 										<option value="Union">Union</option>
 										<option value="PRODEM">PRODEM</option>
 										<option value="BNB">BNB</option>
@@ -337,30 +328,7 @@
 							</div>
 
 							<div class="col-sm-12" id="conocimientos">
-								<div data-role="appendRow" id="grupoConocimiento1">
-									<div class="form-inline form-group">
-										<label class="floating-label" for="conocimiento1">Areas de
-											conocimiento</label>
-										<input input type="text"
-											class="form-control mb-2 mr-sm-2 col-12 col-sm-9 col-md-8 col-lg-9"
-											id="conocimiento1" placeholder="">
 
-										<!-- file upload ends-->
-										<div class="mx-auto">
-											<button
-												class="btn btn-sm btn-outline-danger mr-2 rounded-circle mb-2 botoncitoX"
-												onclick="removeConocimiento(event,1)">
-												<i class="feather icon-x"></i>
-											</button>
-											<button
-												class="btn btn-sm btn-outline-primary rounded-circle mb-2 botoncitoMas"
-												onclick="addConocimiento(event);">
-												<i class="feather icon-plus"></i>
-											</button>
-										</div>
-									</div> <!-- /div.form-inline -->
-
-								</div>
 							</div>
 
 						</div>
@@ -626,10 +594,7 @@
 		<script src="assets/js/sweetalert2.all.min.js"></script>
 		<!-- Required Js Til Here -->
 		<!-- Our custom js -->
-		<script src="assets/js/auxiliar.js"></script>
-		<!-- Required Js Til Here -->
-		<!-- Our custom js -->
-		<script src="assets/js/listarAuxiliar.js"></script>
+		<script src="assets/js/listarAuxiliar.js?v=2"></script>
 		<!-- Our custom js til here -->
 
 

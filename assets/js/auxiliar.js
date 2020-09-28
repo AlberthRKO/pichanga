@@ -128,6 +128,7 @@ function insertar() {
     let correo = $('#correo').val().trim().toLowerCase();
     let cuenta = $('#cuenta').val();
     let banco = $('#banco').val();
+    let conocimientos = JSON.stringify(getConocimientos());
     let url = "php/controlador/ControladorAuxiliar.php";
     let data = {
         request: 'insertar',
@@ -140,32 +141,17 @@ function insertar() {
         correo: correo,
         foto: foto,
         cuenta: cuenta,
-        banco: banco
+        banco: banco,
+        conocimientos: conocimientos
     };
     $.ajax({
         url: url,
         type: "POST",
         async: false,
-        data: data
-    });
-    insertarConocimientos()
-}
-
-function insertarConocimientos() {
-    let conocimientos = Array();
-    for (let i = 1; i <= contadorConocimientos; i++)
-        if ($('#conocimiento' + i).val() != "")
-            conocimientos.push($('#conocimiento' + i).val());
-    let url = "php/controlador/ControladorConocimiento.php";
-    let data = {
-        request: "insertarAlUltimo",
-        conocimientos: JSON.stringify(conocimientos)
-    };
-    $.ajax({
-        url: url,
-        type: "POST",
-        async: false,
-        data: data
+        data: data,
+        success: result => {
+            console.log(result);
+        }
     });
     Swal.fire({
         type: 'success',
@@ -175,6 +161,14 @@ function insertarConocimientos() {
     }).then(() => {
         window.location = "auxiliar.html";
     });
+}
+
+function getConocimientos() {
+    let conocimientos = Array();
+    for (let i = 1; i <= contadorConocimientos; i++)
+        if ($('#conocimiento' + i).val() != "")
+            conocimientos.push(darFormato($('#conocimiento' + i).val()));
+    return conocimientos;
 }
 
 function darFormato(cadena) {

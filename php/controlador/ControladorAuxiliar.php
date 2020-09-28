@@ -13,7 +13,8 @@
       $foto = $_POST['foto'];
       $cuenta = $_POST['cuenta'];
       $banco = $_POST['banco'];
-      $auxiliar = new Auxiliar(1,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,"",$cuenta,$banco,"","","0","1");
+      $conocimientos = $_POST['conocimientos'];
+      $auxiliar = new Auxiliar(1,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,"",$cuenta,$banco,$conocimientos,"","","0","1");
       $result = Auxiliar::insertar($auxiliar);
       addFoto($auxiliar,$foto);
       echo $result;
