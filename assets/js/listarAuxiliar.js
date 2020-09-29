@@ -128,7 +128,7 @@ function listarAuxiliares(){
                                 <img src="assets/images/user/${foto}" alt="user image"
                                     class="img-radius wid-40 align-top m-r-15">
                                 <div class="d-inline-block">
-                                    <h6>${nombre} (${idAuxiliar})</h6>
+                                    <h6>${nombre} <span style="color:#FF4F5A;">(${idAuxiliar})</span></h6>
                                     <p class="text-muted m-b-0">${ciudad}</p>
                                 </div>
                             </div>
@@ -153,7 +153,7 @@ function listarAuxiliares(){
                                 <i class="feather icon-credit-card"></i>
                             </a>
                             <a class="success p-0" type="button" data-toggle="modal"
-                                data-target="#perfilAuxiliar">
+                                onclick="mostrarPerfilAuxiliarModal(${idAuxiliar});">
                                 <i class="feather icon-eye"></i>
                             </a>
                         </td>
@@ -161,6 +161,33 @@ function listarAuxiliares(){
         $('#tabla').append(html);
     });
     auxiliares = aux2;
+}
+
+function mostrarPerfilAuxiliarModal(idAuxiliar){
+    $('#perfilFoto').attr("src","assets/images/user/" + auxiliares[idAuxiliar].foto )
+    $('#perfilId').html("ID: " + idAuxiliar);
+    $('#perfilNombres').html(auxiliares[idAuxiliar].nombres);
+    $('#perfilApellidos').html(auxiliares[idAuxiliar].apellidos);
+    $('#perfilCi').html(auxiliares[idAuxiliar].ci + " " + auxiliares[idAuxiliar].expedido);
+    $('#perfilCiudad').html(auxiliares[idAuxiliar].ciudad);
+    $('#perfilTelefono').html(`<a href="https://wa.me/591${auxiliares[idAuxiliar].telefono}" target="_blank">${auxiliares[idAuxiliar].telefono}</a>`);
+    $('#perfilCorreo').html(auxiliares[idAuxiliar].correo);
+    $('#perfilCuenta').html(auxiliares[idAuxiliar].cuenta);
+    $('#perfilBanco').html(auxiliares[idAuxiliar].banco);
+    let conocimientosHtml = getPerfilConocimientos(idAuxiliar);
+    $('#perfilConocimientos').html(conocimientosHtml);
+    $('#perfilAuxiliarModal').modal("show");
+}
+
+function getPerfilConocimientos(idAuxiliar){
+    let conocimientos = JSON.parse(auxiliares[idAuxiliar].conocimientos);
+    let htmlConocimientos = "";
+    conocimientos.forEach(conocimiento => {
+        if(htmlConocimientos != "")
+            htmlConocimientos += ", "
+        htmlConocimientos+=conocimiento;
+    });
+    return htmlConocimientos;
 }
 
 function mostrarEditarAuxiliarModal(idAuxiliar){
