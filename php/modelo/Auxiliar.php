@@ -71,8 +71,8 @@
 
         public static function editar($auxiliar){
             include('../connection.php');
-            $query = $db->prepare("UPDATE auxiliares SET NOMBRES=?,APELLIDOS=?,CI=?,EXPEDIDO=?,CIUDAD=?,TELEFONO=?,CORREO=?,FOTO=?,CUENTA=?,BANCO=?,CONOCIMIENTOS=? WHERE IDAUXILIAR=?");
-            $query->bind_param("sssssssssssi", $auxiliar->nombres, $auxiliar->apellidos, $auxiliar->ci, $auxiliar->expedido, $auxiliar->ciudad, $auxiliar->telefono, $auxiliar->correo, $auxiliar->foto, $auxiliar->cuenta, $auxiliar->banco,$auxiliar->conocimientos ,$auxiliar->idAuxiliar);
+            $query = $db->prepare("UPDATE auxiliares SET NOMBRES=?,APELLIDOS=?,CI=?,EXPEDIDO=?,CIUDAD=?,TELEFONO=?,CORREO=?,CUENTA=?,BANCO=?,CONOCIMIENTOS=? WHERE IDAUXILIAR=?");
+            $query->bind_param("ssssssssssi", $auxiliar->nombres, $auxiliar->apellidos, $auxiliar->ci, $auxiliar->expedido, $auxiliar->ciudad, $auxiliar->telefono, $auxiliar->correo, $auxiliar->cuenta, $auxiliar->banco,$auxiliar->conocimientos ,$auxiliar->idAuxiliar);
             
             if($query->execute()){
                 $query->close();

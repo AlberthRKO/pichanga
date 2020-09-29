@@ -34,8 +34,9 @@
       $correo = $_POST['correo'];
       $cuenta = $_POST['cuenta'];
       $banco = $_POST['banco'];
-      $foto = $_POST['foto'];
-      $auxiliar = new Auxiliar($idAuxiliar,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,$cuenta,$banco,$foto,"","0","1");
+      $conocimientos = $_POST['conocimientos'];
+      //$foto = $_POST['foto'];
+      $auxiliar = new Auxiliar($idAuxiliar,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,"",$cuenta,$banco,$conocimientos,"","","","");
       Auxiliar::editar($auxiliar);
     break;
     case "eliminar":

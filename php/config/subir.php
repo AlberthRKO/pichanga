@@ -8,7 +8,7 @@
 	$hoy = getdate();
 	$now = $hoy['year']."-".$hoy['mon']."-".$hoy['mday']." ".$hoy['hours'].".".$hoy['minutes'].".".$hoy['seconds'];
 
-	if(!templocation){
+	if(!$templocation){
 		die("NO SE HA SELECCIONADO NINGUN ARCHIVO");
 	}
 	if(move_uploaded_file($templocation, "../../assets/images/files/$name")){

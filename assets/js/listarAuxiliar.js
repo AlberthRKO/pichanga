@@ -1,12 +1,68 @@
 var auxiliares = Array();
-var foto = "";
-var contadorConocimientosEnVista = 0;
-var contadorConocimientos = 0;
+var actualIdAuxiliar;
+var ciAnterior;
 
 $(document).ready(function(){
     getTodosAuxiliares();
     listarAuxiliares();
 });
+
+$('#btnEditar').click(function (e) {
+    e.preventDefault();
+    let ci = $('#ci').val();
+    if(ci == ciAnterior)
+        $('#ci').val(ci+"$");
+    if (hayError())
+        return;
+    editar();
+});
+
+function editar() {
+    let idAuxiliar = actualIdAuxiliar;
+    let nombres = darFormato($('#nombres').val());
+    let apellidos = darFormato($('#apellidos').val());
+    let ci = $('#ci').val();
+    let expedido = $('#expedido').val();
+    let ciudad = darFormato($('#ciudad').val());
+    let telefono = $('#telefono').val().trim();
+    let correo = $('#correo').val().trim().toLowerCase();
+    let cuenta = $('#cuenta').val();
+    let banco = $('#banco').val();
+    let conocimientos = JSON.stringify(getConocimientos());
+    let url = "php/controlador/ControladorAuxiliar.php";
+    let data = {
+        request: 'editar',
+        idAuxiliar: idAuxiliar,
+        nombres: nombres,
+        apellidos: apellidos,
+        ci: ci,
+        expedido: expedido,
+        ciudad: ciudad,
+        telefono: telefono,
+        correo: correo,
+        foto: foto,
+        cuenta: cuenta,
+        banco: banco,
+        conocimientos: conocimientos
+    };
+    $.ajax({
+        url: url,
+        type: "POST",
+        async: false,
+        data: data,
+        success: result => {
+            $('#cerrarModal').click();
+        }
+    });
+    Swal.fire({
+        type: 'success',
+        title: 'CORRECTO',
+        text: '¡Auxiliar editado exitosamente!',
+        animation: true
+    }).then(() => {
+        window.location = "listarAuxiliar.html";
+    });
+}
 
 function getTodosAuxiliares() {
     url = "php/controlador/ControladorAuxiliar.php";
@@ -82,22 +138,36 @@ function listarAuxiliares(){
 }
 
 function mostrarEditarAuxiliarModal(idAuxiliar){
+    limpiarModal();
+    actualIdAuxiliar = idAuxiliar;
     contadorConocimientosEnVista = 0;
     contadorConocimientos = 0;
+    
+    /*$('div.dz-success').remove(); 
+    $('div.dz-message').html("ASDF");*/
     $('#nombres').val(auxiliares[idAuxiliar].nombres);
     $('#apellidos').val(auxiliares[idAuxiliar].apellidos);
     $('#ci').val(auxiliares[idAuxiliar].ci);
+    ciAnterior = auxiliares[idAuxiliar].ci;
     $('#expedido').val(auxiliares[idAuxiliar].expedido);
+    $('#ciudad').val(auxiliares[idAuxiliar].ciudad);
     $('#telefono').val(auxiliares[idAuxiliar].telefono);
     $('#correo').val(auxiliares[idAuxiliar].correo);
     $('#cuenta').val(auxiliares[idAuxiliar].cuenta);
     $('#banco').val(auxiliares[idAuxiliar].banco);
     let conocimientos = JSON.parse(auxiliares[idAuxiliar].conocimientos);
     $('#conocimientos').html("");
-    for(let i=0; i<conocimientos.length; i++){
-        addConocimiento(event,conocimientos[i]);
-    }
+    for(let i=0; i<conocimientos.length; i++)
+        agregarConocimiento(event,conocimientos[i]);
     $('#editarAuxiliarModal').modal("show");
+}
+
+function limpiarModal(){
+    let alertas = ['Nombres',"Apellidos","Ci","Ci1","Ci2","Telefono","Ciudad"];
+    alertas.forEach(alerta => {
+        $('#alerta'+alerta).removeClass("alert alert-danger");
+        $('#alerta' + alerta +'Mensaje').fadeOut();  
+    })
 }
 
 function getConocimientosHtml(conocimientos){
@@ -111,7 +181,7 @@ function getConocimientosHtml(conocimientos){
     return html;
 }
 
-function addConocimiento(e,conocimiento) {
+function agregarConocimiento(e,conocimiento) {
     e.preventDefault();
     contadorConocimientosEnVista++;
     contadorConocimientos++;

@@ -11,11 +11,15 @@ $('#btnRegistrar').click(function (e) {
 
 function hayError() {
     let errorTelefono = validarTelefono();
+    let errorCiudad = validarCiudad();
     let errorCi1 = validarCi();
     let errorCi2 = validarCiExistente();
     let errorApellidos = validarApellidos();
     let errorNombres = validarNombres();
-    if (errorNombres || errorApellidos || errorCi1 || errorCi2 || errorTelefono)
+    let ci = $('#ci').val();
+    if (ci.substr(ci.length-1,1) == "$")
+        $('#ci').val(ci.substr(0,ci.length-1));
+    if (errorNombres || errorApellidos || errorCi1 || errorCi2 || errorTelefono || errorCiudad)
         return true;
     return false;
 }
@@ -69,12 +73,12 @@ function validarCi() {
     let ci = $('#ci').val();
     if (ci.trim() != "") {
         $('#alertaCi').removeClass("alert alert-danger");
-        $('#alertaCiMensaje1').fadeOut();
+        $('#alertaCi1Mensaje').fadeOut();
         return false;
     }
     else {
         $('#alertaCi').addClass("alert alert-danger");
-        $('#alertaCiMensaje1').fadeIn();
+        $('#alertaCi1Mensaje').fadeIn();
         $('#ci').focus();
         return true;
     }
@@ -87,12 +91,12 @@ function validarCiExistente() {
     let exists = checkAuxiliar(ci);
     if (!exists) {
         $('#alertaCi').removeClass("alert alert-danger");
-        $('#alertaCiMensaje2').fadeOut();
+        $('#alertaCi2Mensaje').fadeOut();
         return false;
     }
     else {
         $('#alertaCi').addClass("alert alert-danger");
-        $('#alertaCiMensaje2').fadeIn();
+        $('#alertaCi2Mensaje').fadeIn();
         $('#ci').focus();
         return true;
     }
@@ -116,6 +120,21 @@ function checkAuxiliar(ci) {
         }
     });
     return exists;
+}
+
+function validarCiudad() {
+    let ciudad = $('#ciudad').val();
+    if (ciudad.trim() != "") {
+        $('#alertaCiudad').removeClass("alert alert-danger");
+        $('#alertaCiudadMensaje').fadeOut();
+        return false;
+    }
+    else {
+        $('#alertaCiudad').addClass("alert alert-danger");
+        $('#alertaCiudadMensaje').fadeIn();
+        $('#ciudad').focus();
+        return true;
+    }
 }
 
 function insertar() {

@@ -15,7 +15,7 @@
 
 	<link rel="stylesheet" type="text/css" href="assets/css/dropzone.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/sweetalert2.min.css">
-	<script type="text/javascript" src="assets/js/dropzone.js?v=2"></script>
+	<script type="text/javascript" src="assets/js/dropzone2.js?v=2"></script>
 	<!-- vendor css -->
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/misEstilos.css">
@@ -234,7 +234,7 @@
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalCenterTitle">Editar Auxiliar</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-							aria-hidden="true">&times;</span></button>
+							aria-hidden="true" id="cerrarModal">&times;</span></button>
 				</div>
 				<div class="modal-body">
 					<form>
@@ -279,9 +279,18 @@
 										</select>
 									</div>
 								</div>
-								<p id="alertaCiMensaje1" style="display:none;">INGRESE SU C.I.</p>
-								<p id="alertaCiMensaje2" style="display:none;">SU C.I. YA TIENE UNA
+								<p id="alertaCi1Mensaje" style="display:none;">INGRESE SU C.I.</p>
+								<p id="alertaCi2Mensaje" style="display:none;">SU C.I. YA TIENE UNA
 									CUENTA REGISTRADA</p>
+							</div>
+							<div id="alertaCiudad" class="w-100">
+								<div class="col-sm-12">
+									<div class="form-group">
+										<input type="text" class="form-control" id="ciudad"
+										placeholder="Ciudad">
+									</div>
+								</div>
+								<p id="alertaCiudadMensaje" style="display:none;">INGRESE SU CIUDAD DE RESIDENCIA</p>
 							</div>
 							<div id="alertaTelefono" class="w-100">
 								<div class="col-sm-12">
@@ -298,7 +307,7 @@
 								</div>
 							</div>
 							<div class="col-sm-12 mb-3">
-								<label class="floating-label" for="cuenta">Foto del Auxiliar</label>
+								<label class="floating-label" for="cuenta">Foto del Auxiliar (La última foto subida será guardada)</label>
 								<div action="php/config/subir.php" class="dropzone w-100" id="dropzone">
 									<div class="fallback">
 										<input type="file" name="file" value="" id="archivo">
@@ -335,7 +344,7 @@
 					</form>
 				</div>
 				<div class="modal-footer py-2 mx-auto">
-					<button type="button" class="btn  btn-primary rounded" data-dismiss="modal">Guardar</button>
+					<button type="button" class="btn  btn-primary rounded" id="btnEditar">Guardar</button>
 				</div>
 			</div>
 		</div>
@@ -595,6 +604,7 @@
 		<!-- Required Js Til Here -->
 		<!-- Our custom js -->
 		<script src="assets/js/listarAuxiliar.js?v=2"></script>
+		<script src="assets/js/auxiliar.js?v=3"></script>
 		<!-- Our custom js til here -->
 
 
