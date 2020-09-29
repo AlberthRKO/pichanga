@@ -17,6 +17,32 @@ $('#btnEditar').click(function (e) {
     editar();
 });
 
+$('#btnEliminar').click(function (e) {
+    let idAuxiliar = actualIdAuxiliar;
+    let url = "php/controlador/ControladorAuxiliar.php";
+    let data = {
+        request: 'eliminar',
+        idAuxiliar: idAuxiliar
+    };
+    $.ajax({
+        url: url,
+        type: "POST",
+        async: false,
+        data: data,
+        success: result => {
+            $('#cerrarModalEliminar').click();
+        }
+    });
+    Swal.fire({
+        type: 'success',
+        title: 'CORRECTO',
+        text: '¡Auxiliar eliminado exitosamente!',
+        animation: true
+    }).then(() => {
+        $('#row'+idAuxiliar).fadeOut();
+    });
+});
+
 function editar() {
     let idAuxiliar = actualIdAuxiliar;
     let nombres = darFormato($('#nombres').val());
@@ -51,7 +77,7 @@ function editar() {
         async: false,
         data: data,
         success: result => {
-            $('#cerrarModal').click();
+            $('#cerrarModalEditar').click();
         }
     });
     Swal.fire({
@@ -96,13 +122,13 @@ function listarAuxiliares(){
         let foto = auxiliar.foto;
         let telefono = auxiliar.telefono;
 
-            html = `<tr>
+            html = `<tr id="row${idAuxiliar}">
                         <td>
                             <div class="d-inline-block align-middle">
                                 <img src="assets/images/user/${foto}" alt="user image"
                                     class="img-radius wid-40 align-top m-r-15">
                                 <div class="d-inline-block">
-                                    <h6>${nombre}</h6>
+                                    <h6>${nombre} (${idAuxiliar})</h6>
                                     <p class="text-muted m-b-0">${ciudad}</p>
                                 </div>
                             </div>
@@ -115,11 +141,11 @@ function listarAuxiliares(){
                         <td><label class="badge badge-light-primary">150 Bs</label></td>
                         <td>
                             <a class="success p-0" type="button" 
-                                onclick="mostrarEditarAuxiliarModal(${idAuxiliar})">
+                                onclick="mostrarEditarAuxiliarModal(${idAuxiliar});">
                                 <i class="feather icon-edit"></i>
                             </a>
                             <a class="success p-0" type="button" data-toggle="modal"
-                                data-target="#eliminarAuxiliar">
+                                onclick="mostrarEliminarModal(${idAuxiliar});">
                                 <i class="feather icon-x"></i>
                             </a>
                             <a class="success p-0" type="button" data-toggle="modal"
@@ -160,6 +186,18 @@ function mostrarEditarAuxiliarModal(idAuxiliar){
     for(let i=0; i<conocimientos.length; i++)
         agregarConocimiento(event,conocimientos[i]);
     $('#editarAuxiliarModal').modal("show");
+}
+
+function mostrarEliminarModal(idAuxiliar){
+    actualIdAuxiliar = idAuxiliar;
+    let html = `<p>ID.: <span class="font-weight-bold">${idAuxiliar}
+                        </span>
+                <br>Estas seguro que quieres eliminar al auxiliar
+                <span class="font-weight-bold">
+                    ${auxiliares[idAuxiliar].nombres} ${auxiliares[idAuxiliar].apellidos}
+                </span>?</p>`;
+    $('#eliminarModalBody').html(html);
+    $('#eliminarAuxiliarModal').modal("show");
 }
 
 function limpiarModal(){
