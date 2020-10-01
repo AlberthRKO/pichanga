@@ -3,7 +3,7 @@ use Firebase\JWT\JWT;
 
 class Auth
 {
-    private static $secret_key = 'S.¡w?1s4a9x8@';
+    private static $secret_key = 'S.¡w?1s4aa-s4df9x8@';
     private static $encrypt = ['HS256'];
     private static $aud = null;
 
@@ -12,7 +12,7 @@ class Auth
         $time = time();
 
         $token = array(
-            'exp' => $time + (60*60),
+            'exp' => $time + (60*60*24),
             'aud' => self::Aud(),
             'data' => $data
         );
@@ -20,12 +20,9 @@ class Auth
         return JWT::encode($token, self::$secret_key);
     }
 
-    public static function Check($token)
-    {
+    public static function Check($token){
         if(empty($token))
-        {
-            throw new Exception("Invalid token supplied.");
-        }
+            return "NOT";
 
         $decode = JWT::decode(
             $token,
@@ -33,10 +30,11 @@ class Auth
             self::$encrypt
         );
 
-        if($decode->aud !== self::Aud())
-        {
-            throw new Exception("Invalid user logged in.");
-        }
+        $time = time();
+        if($decode->aud !== self::Aud() || $decode->exp <= $time)
+            return "NOT";
+        else
+            return "OK";
     }
 
     public static function GetData($token)
@@ -65,5 +63,21 @@ class Auth
 
         return sha1($aud);
     }
+
+    
+  function authenticate(&$request,&$user,$exceptions){
+    if(isset($exceptions[$request]))
+        return;
+    if(!isset($_SESSION['jwt'])){
+        $request = "ERROR";
+        return;
+    }
+    $jwt = $_SESSION['jwt'];
+    $result = Auth::Check($jwt);
+    if($result == "NOT")
+      $request = "ERROR";
+    else
+      $user = Auth::GetData($jwt);
+  }
 }
 ?>

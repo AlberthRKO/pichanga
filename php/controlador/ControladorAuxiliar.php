@@ -1,6 +1,12 @@
 <?php
-  include('../modelo/Auxiliar.php');
+  include '../modelo/Auxiliar.php';
+  include '../config/Auth.php';
+  session_start();
+
+  $exceptions = ['getByEmail' => '1','getByEmailAndPassword' => '1','removeSession' => '1'];
   $request = $_POST['request'];
+  $user = null;
+  //Auth::authenticate($request,$user,$exceptions);
   switch($request){
     case "insertar":
       $nombres = $_POST['nombres'];
@@ -67,6 +73,9 @@
       else
         echo "empty";
     break;
+    ////////////////////////////////////////////////////////////////////////////////
+    case "ERROR":
+      echo "NOT";
   }
 
   function addFoto($auxiliar,$foto){
@@ -85,4 +94,5 @@
       Auxiliar::editar($auxiliar);
     }
   }
+
 ?>
