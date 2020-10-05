@@ -91,7 +91,7 @@ function editar() {
 }
 
 function getTodosAuxiliares() {
-    url = "php/controlador/ControladorAuxiliar.php";
+    let url = "php/controlador/ControladorAuxiliar.php";
     data = {
         'request': 'getTodosAuxiliares'
     };
@@ -148,8 +148,7 @@ function listarAuxiliares(){
                                 onclick="mostrarEliminarModal(${idAuxiliar});">
                                 <i class="feather icon-x"></i>
                             </a>
-                            <a class="success p-0" type="button" data-toggle="modal"
-                                data-target="#saldoAuxiliar">
+                            <a class="success p-0" type="button" onclick="mostrarSaldoAuxiliarModal(${idAuxiliar});">
                                 <i class="feather icon-credit-card"></i>
                             </a>
                             <a class="success p-0" type="button" data-toggle="modal"
@@ -161,6 +160,61 @@ function listarAuxiliares(){
         $('#tabla').append(html);
     });
     auxiliares = aux2;
+}
+
+function getTodosSaldosPorAuxiliar(idAuxiliar){
+    let saldos = [];
+    let url = "php/controlador/ControladorSaldo.php";
+    data = {
+        request: 'getTodosSaldosPorAuxiliar',
+        idAuxiliar: idAuxiliar
+    };
+    $.ajax({
+        url: url,
+        type: "POST",
+        async: false,
+        data: data,
+        success: function (result) {
+            if (result.trim() != "empty")
+                saldos = JSON.parse(result.trim());
+        }
+    });
+    return saldos;
+}
+
+function mostrarSaldoAuxiliarModal(idAuxiliar){
+    let fullName = `${auxiliares[idAuxiliar].nombres} ${auxiliares[idAuxiliar].apellidos} (${idAuxiliar})`;
+    $('.modalMovimientos').html(fullName);
+    let saldos = getTodosSaldosPorAuxiliar(idAuxiliar);
+    let montoTotal = 0;
+    let html = "";
+    saldos.forEach(saldo => {
+        if(saldo.monto > 0)
+            html += '<tr class="p-3 mb-2 bg-success text-white">';
+        else
+            html += '<tr class="p-3 mb-2 bg-danger text-white">';
+        html +=     `
+                        <td>${saldo.descripcion}</td>
+                        <td>${saldo.monto} Bs.</td>
+                    </tr>`;
+        montoTotal += saldo.monto;
+    });
+    $('#saldos').html(html);
+    let textColor = "";
+    let ultimoMovimiento = saldos[saldos.length-1] == undefined ? 0 : saldos[saldos.length-1].monto;
+    if(ultimoMovimiento > 0)
+        textColor = "text-success";
+    else
+        textColor = "text-danger";
+    $('#ultimoMovimiento').html(`<label class="elevacion font-weight-bold text-dark">Último Movimiento</label>
+                                 <p class="text-muted font-weight-bold ${textColor}">${ultimoMovimiento} Bs.</p>`);
+    if(montoTotal > 0)
+        textColor = "text-success";
+    else
+        textColor = "text-danger";
+    $('#saldoActual').html(`<label class="elevacion font-weight-bold text-dark">Saldo Actual</label>
+                            <p class="text-muted font-weight-bold ${textColor}">${montoTotal} Bs.</p>`);
+    $('#saldoAuxiliarModal').modal("show");
 }
 
 function mostrarPerfilAuxiliarModal(idAuxiliar){

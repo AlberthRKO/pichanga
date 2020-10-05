@@ -373,28 +373,26 @@
 	</div>
 
 
-	<div id="saldoAuxiliar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+	<div id="saldoAuxiliarModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
 		aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalCenterTitle">Saldo Auxiliar</h5>
+					<h5 class="modal-title modalMovimientos" id="exampleModalCenterTitle"></h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
 							aria-hidden="true">&times;</span></button>
 				</div>
 				<div class="modal-body">
 					<div class="row text-center">
-						<div class="col-6">
-							<label class=" elevacion">Saldo Actual</label>
-							<p class="text-muted font-weight-bold">75 Bs</p>
+						<div class="col-6" id="saldoActual">
+							
 						</div>
-						<div class="col-6">
-							<label class=" elevacion">Último deposito</label>
-							<p class="text-muted font-weight-bold">50 Bs</p>
+						<div class="col-6" id="ultimoMovimiento">
+							
 						</div>
 					</div>
 
-					<h6 class="mt-2">Registros de Pago</h6>
+					<h6 class="mt-2">Registros de Movimientos</h6>
 
 					<table class="table table-hover mb-0 text-center">
 						<thead>
@@ -403,20 +401,7 @@
 								<th>Monto Depositado</th>
 							</tr>
 						</thead>
-						<tbody>
-
-							<tr>
-								<td>De 2 tareas de Calculo 1</td>
-								<td>120 Bs</td>
-							</tr>
-							<tr>
-								<td>De 1 tarea de diseño</td>
-								<td>50 Bs</td>
-							</tr>
-							<tr>
-								<td>Examen Calculo 2</td>
-								<td>150 Bs</td>
-							</tr>
+						<tbody id="saldos">
 
 						</tbody>
 					</table>
