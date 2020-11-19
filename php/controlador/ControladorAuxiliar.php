@@ -20,7 +20,7 @@
       $cuenta = $_POST['cuenta'];
       $banco = $_POST['banco'];
       $conocimientos = $_POST['conocimientos'];
-      $auxiliar = new Auxiliar(1,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,"",$cuenta,$banco,$conocimientos,"","","0","1");
+      $auxiliar = new Auxiliar(1,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,"",$cuenta,$banco,$conocimientos,"","",0,0,0,"0","1");
       $result = Auxiliar::insertar($auxiliar);
       addFoto($auxiliar,$foto);
       echo $result;
@@ -42,7 +42,7 @@
       $banco = $_POST['banco'];
       $conocimientos = $_POST['conocimientos'];
       //$foto = $_POST['foto'];
-      $auxiliar = new Auxiliar($idAuxiliar,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,"",$cuenta,$banco,$conocimientos,"","","","");
+      $auxiliar = new Auxiliar($idAuxiliar,$nombres,$apellidos,$ci,$expedido,$ciudad,$telefono,$correo,"",$cuenta,$banco,$conocimientos,"","",0,0,0,"0","1");
       Auxiliar::editar($auxiliar);
     break;
     case "eliminar":
@@ -91,7 +91,7 @@
       }
       $auxiliar->idAuxiliar = $idAuxiliar;
       $auxiliar->foto = $fotoAsignada;
-      Auxiliar::editar($auxiliar);
+      Auxiliar::editarFoto($idAuxiliar,$fotoAsignada);
     }
   }
 

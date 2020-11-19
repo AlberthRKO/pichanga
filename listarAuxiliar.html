@@ -20,7 +20,17 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/misEstilos.css">
 
+	<style>
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
 
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+  </style>
 
 
 </head>
@@ -202,7 +212,7 @@
 								<table class="table table-hover mb-0">
 									<thead>
 										<tr>
-											<th>Auxiliar</th>
+											<th>Auxiliar (ID)</th>
 											<th>Telefono</th>
 											<th>Area de Conocimiento</th>
 											<th>Calificación</th>
@@ -429,21 +439,21 @@
 				<div class="modal-body">
 					<div class="col-sm-12">
 						<div class="form-group">
-							<label class="floating-label" for="descripcionTarea">Descripcion
+							<label class="floating-label" for="descripcionMovimiento">Descripcion
 								deposito</label>
-							<textarea class="form-control" id="descripcionTarea" rows="3"></textarea>
+							<textarea class="form-control" id="descripcionMovimiento" rows="3"></textarea>
 						</div>
 					</div>
 					<div class="col-12">
 						<div class="form-group">
-							<label class="floating-label" for="ganancia">Cantidad</label>
-							<input type="number" min="1" pattern="^[0-9]+" class="form-control" id="ganancia"
+							<label class="floating-label" for="montoMovimiento">Cantidad</label>
+							<input type="number" min="1" pattern="^[0-9]+" class="form-control" id="montoMovimiento"
 								placeholder="">
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer py-2 mx-auto">
-					<button type="button" class="btn  btn-primary rounded" data-dismiss="modal">Guardar</button>
+					<button type="button" class="btn  btn-primary rounded" id="btnGuardarMovimiento">Guardar</button>
 				</div>
 			</div>
 		</div>
@@ -504,12 +514,12 @@
 						</div>
 						<div class="col-6 col-lg-4">
 							<label class="elevacion">Saldo</label>
-							<p class="text-muted font-weight-bold">70 Bs</p>
+							<p class="text-muted font-weight-bold" id="perfilSaldo">0 Bs</p>
 						</div>
 						<div class="col-6 col-lg-4 mx-auto">
 							<label class="elevacion">Calificación</label>
 							<p class="text-muted font-weight-bold"><i class="feather icon-star-on text-warning"></i>
-								4.8</p>
+								<label id="perfilCalificacion">4.8</label></p>
 						</div>
 						<div class="col-6 col-lg-4 mx-auto">
 							<label class="elevacion">Conocimientos</label>
@@ -591,8 +601,8 @@
 		<script src="assets/js/sweetalert2.all.min.js"></script>
 		<!-- Required Js Til Here -->
 		<!-- Our custom js -->
-		<script src="assets/js/listarAuxiliar.js?v=2"></script>
-		<script src="assets/js/auxiliar.js?v=3"></script>
+		<script src="assets/js/listarAuxiliar.js?v=3"></script>
+		<script src="assets/js/auxiliar.js?v=4"></script>
 		<!-- Our custom js til here -->
 
 

@@ -12,7 +12,7 @@
       $monto = $_POST['monto'];
       $descripcion = $_POST['descripcion'];
       $idAuxiliar = $_POST['idAuxiliar'];
-      $saldo = new Saldo(0,$monto,'',$descripcion,$idAuxiliar);
+      $saldo = new Saldo(0,$monto,'',$descripcion,'1',$idAuxiliar);
       $result = Saldo::insertar($saldo);
       echo $result;
     break;

@@ -4,13 +4,15 @@
         public $monto;
         public $fecha;
         public $descripcion;
+        public $activo;
         public $idAuxiliar;
         
-        public function __construct($idSaldo,$monto,$fecha,$descripcion,$idAuxiliar) {
+        public function __construct($idSaldo,$monto,$fecha,$descripcion,$activo,$idAuxiliar) {
             $this->idSaldo = $idSaldo;
             $this->monto = $monto;
             $this->fecha = $fecha;
             $this->descripcion = $descripcion;
+            $this->activo = $activo;
             $this->idAuxiliar = $idAuxiliar;
         }
 
@@ -19,9 +21,9 @@
             date_default_timezone_set ("America/La_Paz");
             $date = getdate();
             $now = $date['year']."/".$date['mon']."/".$date['mday']." ".$date['hours'].":".$date['minutes'].":".$date['seconds'];
-            $query = $db->prepare("INSERT INTO saldos(MONTO,FECHA,DESCRIPCION,IDAUXILIAR)VALUES(?,'$now',?,?)");
-            $query->bind_param("fsi", $saldo->monto, $saldo->descripcion, $saldo->idAuxiliar);
-
+            $query = $db->prepare("CALL INSERTARSALDO(?,?,?,?)");
+            //$query = $db->prepare("INSERT INTO saldos(MONTO,FECHA,DESCRIPCION,IDAUXILIAR)VALUES(?,?,'$now',?,?)");
+            $query->bind_param("dssi", $saldo->monto, $now, $saldo->descripcion, $saldo->idAuxiliar);
             
             if($query->execute()){
                 $query->close();
@@ -48,7 +50,7 @@
 
         public static function eliminar($idSaldo){
             include('../connection.php');
-            $query = $db->prepare("DELETE FROM saldos where IDSALDO=?");
+            $query = $db->prepare("UPDATE saldos SET ACTIVO='0' where IDSALDO=?");
 
             $query->bind_param("i", $idSaldo);
 
@@ -63,7 +65,7 @@
 
         public static function getTodosSaldos(){
             include('../connection.php');
-            $query = $db->prepare("SELECT * FROM saldos");
+            $query = $db->prepare("SELECT * FROM saldos WHERE ACTIVO='1'");
 
             $saldos = array();
             //Ejecutamos la consulta
@@ -76,11 +78,11 @@
                     return null;
                 
                 //Indicamos la variable donde se guardaran los resultados
-                $query->bind_result($idSaldo,$monto,$fecha,$descripcion,$idAuxiliar);
+                $query->bind_result($idSaldo,$monto,$fecha,$descripcion,$estado,$idAuxiliar);
                 
                 //listamos todos los resultados
                 while($query->fetch()){
-                    $saldoActual = new Saldo($idSaldo,$monto,$fecha,$descripcion,$idAuxiliar);
+                    $saldoActual = new Saldo($idSaldo,$monto,$fecha,$descripcion,$estado,$idAuxiliar);
                     array_push($saldos,$saldoActual);
                 }
                 //Cerramos la conexion
@@ -93,8 +95,9 @@
 
         public static function getTodosSaldosPorAuxiliar($idAuxiliar){
             include('../connection.php');
-            $query = $db->prepare("SELECT * FROM saldos WHERE IDAUXILIAR=?
-                                   ORDER BY FECHA");
+            $query = $db->prepare("SELECT * FROM saldos
+                                    WHERE IDAUXILIAR=? AND ACTIVO='1'
+                                    ORDER BY FECHA");
             $query->bind_param("i", $idAuxiliar);
 
             $saldos = array();
@@ -108,11 +111,11 @@
                     return null;
                 
                 //Indicamos la variable donde se guardaran los resultados
-                $query->bind_result($idSaldo,$monto,$fecha,$descripcion,$idAuxiliar);
+                $query->bind_result($idSaldo,$monto,$fecha,$descripcion,$estado,$idAuxiliar);
                 
                 //listamos todos los resultados
                 while($query->fetch()){
-                    $saldoActual = new Saldo($idSaldo,$monto,$fecha,$descripcion,$idAuxiliar);
+                    $saldoActual = new Saldo($idSaldo,$monto,$fecha,$descripcion,$estado,$idAuxiliar);
                     array_push($saldos,$saldoActual);
                 }
                 //Cerramos la conexion

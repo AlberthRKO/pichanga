@@ -121,6 +121,10 @@ function listarAuxiliares(){
         let etiquetaConcimientos = getConocimientosHtml(conocimientos);
         let foto = auxiliar.foto;
         let telefono = auxiliar.telefono;
+        let calificacion = 0;
+        if(auxiliar.tareaRealizada != 0)
+            calificacion = auxiliar.tareaSuma/auxiliar.tareaRealizada;
+        let saldo = getEtiquetaSaldo(auxiliar.saldo);
 
             html = `<tr id="row${idAuxiliar}">
                         <td>
@@ -136,9 +140,9 @@ function listarAuxiliares(){
                         <td><a href="https://wa.me/591${telefono}" target="_blank">${telefono}</a></td>
                         <td>${etiquetaConcimientos}</td>
                         <td><i class="feather icon-star-on text-warning"></i>
-                            4.8
+                            ${calificacion}
                         </td>
-                        <td><label class="badge badge-light-primary">150 Bs</label></td>
+                        <td>${saldo}</td>
                         <td>
                             <a class="success p-0" type="button" 
                                 onclick="mostrarEditarAuxiliarModal(${idAuxiliar});">
@@ -162,6 +166,15 @@ function listarAuxiliares(){
     auxiliares = aux2;
 }
 
+function getEtiquetaSaldo(saldo){
+    let html = "";
+    if(saldo >= 0)
+        html = `<label class="badge badge-light-success">${saldo} Bs</label>`;
+    else
+        html = `<label class="badge badge-light-danger">${saldo} Bs</label>`;
+    return html;
+}
+
 function getTodosSaldosPorAuxiliar(idAuxiliar){
     let saldos = [];
     let url = "php/controlador/ControladorSaldo.php";
@@ -183,6 +196,7 @@ function getTodosSaldosPorAuxiliar(idAuxiliar){
 }
 
 function mostrarSaldoAuxiliarModal(idAuxiliar){
+    actualIdAuxiliar = idAuxiliar;
     let fullName = `${auxiliares[idAuxiliar].nombres} ${auxiliares[idAuxiliar].apellidos} (${idAuxiliar})`;
     $('.modalMovimientos').html(fullName);
     let saldos = getTodosSaldosPorAuxiliar(idAuxiliar);
@@ -228,6 +242,11 @@ function mostrarPerfilAuxiliarModal(idAuxiliar){
     $('#perfilCorreo').html(auxiliares[idAuxiliar].correo);
     $('#perfilCuenta').html(auxiliares[idAuxiliar].cuenta);
     $('#perfilBanco').html(auxiliares[idAuxiliar].banco);
+    $('#perfilSaldo').html(auxiliares[idAuxiliar].saldo);
+    let calificacion = 0;
+    if(auxiliares[idAuxiliar].tareaRealizada != 0)
+        calificacion = auxiliares[idAuxiliar].tareaSuma/auxiliares[idAuxiliar].tareaRealizada;
+    $('#perfilCalificacion').html(calificacion);
     let conocimientosHtml = getPerfilConocimientos(idAuxiliar);
     $('#perfilConocimientos').html(conocimientosHtml);
     $('#perfilAuxiliarModal').modal("show");
@@ -327,6 +346,45 @@ function agregarConocimiento(e,conocimiento) {
                     </div> <!-- /div.form-inline -->
                 </div>`;
     $('#conocimientos').append(html);
+}
+
+$('#btnGuardarMovimiento').click(function(event){
+    event.preventDefault();
+    addMovimiento();
+});
+
+function addMovimiento(){
+    let idAuxiliar = actualIdAuxiliar;
+    let descripcion = $('#descripcionMovimiento').val();
+    let monto = $('#montoMovimiento').val();
+    let url = "php/controlador/ControladorSaldo.php";
+    data = {
+        request: 'insertar',
+        monto: monto,
+        descripcion: descripcion,
+        idAuxiliar: idAuxiliar
+    };
+    $.ajax({
+        url: url,
+        type: "POST",
+        async: false,
+        data: data,
+        success: function (result) {
+            console.log(result);
+            if(result == "OK"){
+                $('#saldoAuxiliarModal').modal("hide");
+                $('#nuevaRegistro').modal("hide");
+                Swal.fire({
+                    type: 'success',
+                    title: 'CORRECTO',
+                    text: '¡Saldo insertado exitosamente!',
+                    animation: true
+                }).then(() => {
+                    location.reload();
+                });
+            }
+        }
+    });
 }
 
 function removeConocimiento(e, idConocimiento) {

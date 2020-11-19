@@ -169,7 +169,7 @@ function insertar() {
         async: false,
         data: data,
         success: result => {
-            console.log(result);
+            
         }
     });
     Swal.fire({
